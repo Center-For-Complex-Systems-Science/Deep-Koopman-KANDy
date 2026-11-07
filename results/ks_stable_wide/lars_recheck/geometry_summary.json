@@ -1,0 +1,145 @@
+{
+  "corr_g_cd_lars": {
+    "median": 0.9998152359875054,
+    "min": 0.9976769839917901,
+    "max": 0.9999786959005463,
+    "n_dims": 128,
+    "n_below_0.999": 7,
+    "argmin_dim": 23
+  },
+  "dims": {
+    "z19": {
+      "dominant_node": 13,
+      "layer1_curv_at_pair_sites": [
+        0.1787718429102489,
+        0.2972535871383168
+      ],
+      "layer1_curv_at_other_sites": [
+        0.048070853884932103,
+        0.7612763144319094,
+        0.8829624187822056
+      ],
+      "layer2_curv_dominant_node": 0.03030755954012692,
+      "n_atoms_lars": 87,
+      "n_atoms_cd": 152,
+      "r2_hog_lars": 0.9992337659675484,
+      "corr_g": 0.9999540562155284,
+      "neighbour_pair_sites": [
+        40,
+        41
+      ],
+      "spline_sites": [
+        40,
+        41,
+        26,
+        32,
+        15
+      ],
+      "top_hidden_nodes": [
+        13,
+        93
+      ],
+      "layer1_curvature_median": 0.2636548380205883,
+      "layer1_curvature_max": 0.9359853247784128,
+      "layer2_curvature": [
+        0.03030755954012692,
+        0.07420622714209082
+      ]
+    },
+    "z91": {
+      "dominant_node": 92,
+      "layer1_curv_at_pair_sites": [
+        0.00963948136418677,
+        0.0005877399138869096
+      ],
+      "layer1_curv_at_other_sites": [
+        0.20258633535180723,
+        0.2743075996482543,
+        0.09788738342945
+      ],
+      "layer2_curv_dominant_node": 0.14326352009921944,
+      "n_atoms_lars": 77,
+      "n_atoms_cd": 185,
+      "r2_hog_lars": 0.9951338001279533,
+      "corr_g": 0.9994276523879752,
+      "neighbour_pair_sites": [
+        59,
+        60
+      ],
+      "spline_sites": [
+        59,
+        60,
+        28,
+        14,
+        3
+      ],
+      "top_hidden_nodes": [
+        92,
+        17
+      ],
+      "layer1_curvature_median": 0.14407473317984598,
+      "layer1_curvature_max": 0.3077957905597656,
+      "layer2_curvature": [
+        0.14326352009921944,
+        0.038974639573104555
+      ]
+    },
+    "z92": {
+      "dominant_node": 13,
+      "layer1_curv_at_pair_sites": [
+        0.05892240621998568,
+        0.28697893847656347
+      ],
+      "layer1_curv_at_other_sites": [
+        0.07615394266140535,
+        0.1757888953977503,
+        0.7612763144319094
+      ],
+      "layer2_curv_dominant_node": 0.030159432218300874,
+      "n_atoms_lars": 81,
+      "n_atoms_cd": 195,
+      "r2_hog_lars": 0.9967322129172108,
+      "corr_g": 0.9996609702353418,
+      "neighbour_pair_sites": [
+        4,
+        5
+      ],
+      "spline_sites": [
+        4,
+        5,
+        52,
+        38,
+        32
+      ],
+      "top_hidden_nodes": [
+        13,
+        92
+      ],
+      "layer1_curvature_median": 0.1356134230024013,
+      "layer1_curvature_max": 0.7612763144319094,
+      "layer2_curvature": [
+        0.030159432218300874,
+        0.14337551115903915
+      ]
+    }
+  },
+  "coupling": {
+    "z19_CD": {
+      "n_quadratic_atoms": 117,
+      "near_diag_energy_frac": 0.2432749979201079
+    },
+    "z19_LassoLars": {
+      "n_quadratic_atoms": 74,
+      "near_diag_energy_frac": 0.3047409372770302
+    },
+    "z91_CD": {
+      "n_quadratic_atoms": 162,
+      "near_diag_energy_frac": 0.33564475678468875
+    },
+    "z91_LassoLars": {
+      "n_quadratic_atoms": 66,
+      "near_diag_energy_frac": 0.5408038406160482
+    }
+  },
+  "wall_clock_sec": 1550.497275352478
+}

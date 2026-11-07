@@ -1,0 +1,126 @@
+Analysis points: (10000, 2)  x[-0.35,2.97] y[-2.20,4.15]
+Loading base model from /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/ikeda_robustness/base_model_seed0.pt
+Base one-step MSE: 9.817786e-04
+
+========================================================================
+REPRODUCTION CHECK  (alpha=1e-3, degree 3, polynomial basis)
+========================================================================
+ dim    R2(g)  R2(hog)  #act  affine      c_x2      c_y2  ratio  R2_rad  |rho|
+z[0]    0.912    0.912     9     yes   -0.0804   -0.0114  0.142   0.163  0.344
+z[1]    0.940    0.941    10     yes   -0.0762   -0.0499  0.656   0.955  0.687
+z[2]    0.980    0.985     7      no   +0.0121   -0.0016  0.133   0.088  0.211
+z[3]    0.967    0.967     7     yes   +0.0849   +0.0200  0.235   0.957  0.477
+
+  paper R2(hog) sorted: ['0.915', '0.941', '0.968', '0.986']
+  ours  R2(hog) sorted: ['0.912', '0.941', '0.967', '0.985']
+  all in [0.90, 0.995]? True
+  best matched-quadratic ratio: 0.656 (paper: 0.66)
+  dims with radial signature: 1/4
+  median R2_radial: 0.559  max: 0.957
+
+  REPRODUCED: True
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/ikeda_robustness/reproduction_per_dim.csv
+
+========================================================================
+AXIS A: Lasso lambda  (degree 3, polynomial basis)
+========================================================================
+  a=   1e-06 P= 10 R2hg med=0.976 min=0.919 |#act=10.0 FP=4.0 |R2rad med=0.532 max=0.947 |rho med=0.414 |radial-sig=0 |affine h=3 |t=5.07s
+  a=   1e-05 P= 10 R2hg med=0.976 min=0.919 |#act=10.0 FP=4.0 |R2rad med=0.532 max=0.947 |rho med=0.414 |radial-sig=0 |affine h=3 |t=3.72s
+  a=   5e-05 P= 10 R2hg med=0.975 min=0.919 |#act=10.0 FP=4.0 |R2rad med=0.533 max=0.948 |rho med=0.414 |radial-sig=1 |affine h=3 |t=2.94s
+  a=   1e-04 P= 10 R2hg med=0.975 min=0.919 |#act=10.0 FP=4.0 |R2rad med=0.535 max=0.949 |rho med=0.414 |radial-sig=1 |affine h=4 |t=2.66s
+  a=   5e-04 P= 10 R2hg med=0.970 min=0.917 |#act=8.5 FP=2.5 |R2rad med=0.547 max=0.954 |rho med=0.411 |radial-sig=1 |affine h=3 |t=1.44s
+  a=   1e-03 P= 10 R2hg med=0.954 min=0.912 |#act=8.0 FP=2.5 |R2rad med=0.559 max=0.957 |rho med=0.411 |radial-sig=1 |affine h=3 |t=1.20s
+  a=   5e-03 P= 10 R2hg med=0.931 min=0.871 |#act=7.0 FP=1.5 |R2rad med=0.584 max=0.965 |rho med=0.452 |radial-sig=1 |affine h=3 |t=0.22s
+  a=   1e-02 P= 10 R2hg med=0.908 min=0.822 |#act=6.0 FP=1.0 |R2rad med=0.613 max=0.967 |rho med=0.506 |radial-sig=0 |affine h=3 |t=0.10s
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/ikeda_robustness/axis_lambda.csv
+
+  LassoLars cross-check @ a=0.001: #act median=8.0 (CD: 8.0), R2hg median=0.954, R2rad median=0.559
+
+========================================================================
+AXIS B: polynomial degree  (alpha = 0.001)
+========================================================================
+  D=1 P=  3 R2hg med=0.441 min=0.261 |#act=3.0 FP=0.0 |R2rad med=0.810 max=0.845 |rho med=0.675 |radial-sig=0 |t=0.01s (0.002/dim)
+  D=2 P=  6 R2hg med=0.791 min=0.328 |#act=6.0 FP=0.0 |R2rad med=0.840 max=0.924 |rho med=0.469 |radial-sig=0 |t=0.04s (0.011/dim)
+  D=3 P= 10 R2hg med=0.954 min=0.912 |#act=8.0 FP=2.5 |R2rad med=0.559 max=0.957 |rho med=0.411 |radial-sig=1 |t=1.21s (0.303/dim)
+  D=4 P= 15 R2hg med=0.965 min=0.946 |#act=8.5 FP=2.5 |R2rad med=0.551 max=0.954 |rho med=0.417 |radial-sig=1 |t=3.88s (0.970/dim)
+  D=5 P= 21 R2hg med=0.948 min=0.617 |#act=8.5 FP=2.5 |R2rad med=0.679 max=0.954 |rho med=0.417 |radial-sig=1 |t=6.55s (1.636/dim)
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/ikeda_robustness/axis_degree.csv
+
+  candidate-count cost:  P -> median FP -> median #active
+    D=1  P=  3  FP=0.0  #act=3.0  R2rad_med=0.810
+    D=2  P=  6  FP=0.0  #act=6.0  R2rad_med=0.840
+    D=3  P= 10  FP=2.5  #act=8.0  R2rad_med=0.559
+    D=4  P= 15  FP=2.5  #act=8.5  R2rad_med=0.551
+    D=5  P= 21  FP=2.5  #act=8.5  R2rad_med=0.679
+    first degree where FP count rises with P: 3
+
+========================================================================
+AXIS C: readout basis  (alpha = 0.001)
+========================================================================
+  poly         P= 10 R2hg med=0.954 min=0.912 |#act=8.0 |R2rad med=0.559 max=0.957 |rho med=0.411 max=0.687 |affine h=3 |t=1.25s
+  radial_trig  P= 13 R2hg med=0.991 min=0.929 |#act=12.0 |R2rad med=0.525 max=0.931 |rho med=0.403 max=0.650 |affine h=4 |t=0.11s
+      z[0] top: 1(+0.6686);x(+0.0842);sin_t(+0.0460);y*sin_t(+0.0456);y*cos_t(+0.0276);x*cos_t(-0.0246)
+      z[1] top: 1(+1.7833);x*sin_t(+0.0265);y*cos_t(+0.0220);sin_t(+0.0183);y*sin_t(-0.0166);x(+0.0103)
+      z[2] top: 1(+1.1445);x(+0.0484);y(+0.0304);xy(-0.0107);y*sin_t(-0.0105);cos_t(+0.0081)
+      z[3] top: 1(+1.4747);x*cos_t(+0.0525);x(-0.0497);y*sin_t(-0.0482);sin_t(-0.0470);y*cos_t(-0.0325)
+  rbf          P= 37 R2hg med=0.995 min=0.993 |#act=17.0 |R2rad med=0.522 max=0.931 |rho med=0.403 max=0.660 |affine h=3 |t=1.22s
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/ikeda_robustness/axis_basis.csv
+
+========================================================================
+AXIS D: prune threshold tau  (prune -> retrain -> re-decompose)
+========================================================================
+  encoder attribution scores (PyKAN B_ij, 24 edges): min=0.193 p25=0.426 med=0.646 max=3.559
+  fraction <= 0.01/0.03/0.05: 0.00/0.00/0.00  (Lorenz uses tau=0.03)
+
+  tau = 0.0
+    MSE 9.8178e-04 (1.00x base) | R2hg med=0.954 min=0.912 | #act=8.0 | R2rad med=0.559 max=0.957 | radial-sig=1 | best quad ratio=0.656
+
+  tau = 0.01
+    pruned 0/24 encoder edges
+    (nothing pruned -> model is byte-identical to tau=0; skipping retrain)
+    MSE 9.8178e-04 (1.00x base) | R2hg med=0.954 min=0.912 | #act=8.0 | R2rad med=0.559 max=0.957 | radial-sig=1 | best quad ratio=0.656
+
+  tau = 0.03
+    pruned 0/24 encoder edges
+    (nothing pruned -> model is byte-identical to tau=0; skipping retrain)
+    MSE 9.8178e-04 (1.00x base) | R2hg med=0.954 min=0.912 | #act=8.0 | R2rad med=0.559 max=0.957 | radial-sig=1 | best quad ratio=0.656
+
+  tau = 0.05
+    pruned 0/24 encoder edges
+    (nothing pruned -> model is byte-identical to tau=0; skipping retrain)
+    MSE 9.8178e-04 (1.00x base) | R2hg med=0.954 min=0.912 | #act=8.0 | R2rad med=0.559 max=0.957 | radial-sig=1 | best quad ratio=0.656
+
+  tau = 0.1
+    pruned 0/24 encoder edges
+    (nothing pruned -> model is byte-identical to tau=0; skipping retrain)
+    MSE 9.8178e-04 (1.00x base) | R2hg med=0.954 min=0.912 | #act=8.0 | R2rad med=0.559 max=0.957 | radial-sig=1 | best quad ratio=0.656
+
+  tau = 0.2
+    pruned 2/24 encoder edges
+      retrain ep  25  loss 0.03605
+      retrain ep  50  loss 0.01635
+      retrain ep  75  loss 0.01183
+      retrain ep 100  loss 0.01173
+    MSE 6.2489e-03 (6.36x base) | R2hg med=0.994 min=0.989 | #act=7.5 | R2rad med=0.962 max=0.979 | radial-sig=0 | best quad ratio=0.653
+
+  tau = 0.3
+    pruned 3/24 encoder edges
+      retrain ep  25  loss 0.02209
+      retrain ep  50  loss 0.01326
+      retrain ep  75  loss 0.01116
+      retrain ep 100  loss 0.01053
+    MSE 3.0387e-03 (3.10x base) | R2hg med=0.976 min=0.871 | #act=8.0 | R2rad med=0.676 max=0.998 | radial-sig=0 | best quad ratio=0.870
+
+  tau = 0.5
+    pruned 9/24 encoder edges
+      retrain ep  25  loss 0.04401
+      retrain ep  50  loss 0.02629
+      retrain ep  75  loss 0.02219
+      retrain ep 100  loss 0.02157
+    MSE 9.5480e-03 (9.73x base) | R2hg med=0.964 min=0.935 | #act=7.0 | R2rad med=0.906 max=0.948 | radial-sig=0 | best quad ratio=0.060
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/ikeda_robustness/axis_tau.csv
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/ikeda_robustness/all_settings.csv
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/ikeda_robustness/per_dim_detail.csv
+
+Wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/ikeda_robustness/summary.json
+Done.

@@ -1,0 +1,38 @@
+{
+  "system": "mackey_glass",
+  "latent_size": 128,
+  "mid_size": 128,
+  "input_size": 64,
+  "dt_save": 4.0,
+  "T": 800.0,
+  "n_traj": 24,
+  "epochs": 300,
+  "chaos_std": 0.2259323000907898,
+  "is_chaotic": true,
+  "final_train_loss": 0.00029759046654882174,
+  "final_val_loss": 0.00030072264780756086,
+  "onestep_nrmse_floor": 0.06974079459905624,
+  "horizon_nrmse0.5": {
+    "tau_L": 1.1008,
+    "time": 128.0,
+    "steps": 32,
+    "tau_periods": 7.529411764705882
+  },
+  "horizon_nrmse1.0": {
+    "tau_L": 2.7864,
+    "time": 324.0,
+    "steps": 81,
+    "tau_periods": 19.058823529411764
+  },
+  "lambda_mag_min": 0.512320339679718,
+  "lambda_mag_max": 0.9985916614532471,
+  "generator_max_re": -0.0003523706109263003,
+  "recon_mse": 0.00012612954014912248,
+  "r2_hg_analyzed": {
+    "88": 0.9993008891473231,
+    "48": 0.9996258037462252,
+    "123": 0.9989591213074223,
+    "57": 0.9998816242560212
+  },
+  "wall_clock_sec": 279.1835904121399
+}

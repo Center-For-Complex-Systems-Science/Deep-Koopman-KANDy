@@ -1,0 +1,8 @@
+system,method,seed,n_atoms,one_step_nmse,vpt_05_steps,n_params,wall_s,n_roll,resdmd_res_median,resdmd_res_min,resdmd_frac_cert
+lorenz,EDMD(T),0,9,2.597414322735858e-06,inf,130,0.2,331,,,
+lorenz,EDMD(poly),0,9,2.597414322735858e-06,inf,130,0.2,331,,,
+lorenz,EDMD-DL,0,9,0.003613814478740096,13.0,4806,24.1,331,,,
+lorenz,ResDMD(T),0,9,,,,,,0.09544402440825375,2.038498290314071e-08,0.5
+ks,EDMD(T),0,200,0.0003394656232558191,4.0,53265,5.9,180,,,
+ks,EDMD-DL,0,200,0.14346711337566376,17.0,42376,9.2,180,,,
+ks,ResDMD(T),0,200,,,,,,0.301966626325977,1.6358358068743045e-09,0.009950248756218905

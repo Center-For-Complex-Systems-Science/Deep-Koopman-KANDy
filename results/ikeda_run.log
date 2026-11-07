@@ -1,0 +1,370 @@
+======================================================================
+Ikeda Map: Deep Koopman with KAN + Stable Propagator
+  Architecture: [2, 6, 8]
+  Device: cuda
+  Seeds: [0, 1, 2, 3, 4]
+======================================================================
+
+Generating Ikeda trajectories...
+  Shape: (200, 2000, 2)
+  x range: [-0.354, 2.972]
+  y range: [-2.208, 4.146]
+
+======================================================================
+SEED 0
+======================================================================
+
+--- Phase 2-3: Training (seed=0) ---
+  Model [2,6,8]: 1,264 params
+  Ep   1 | train 1.34087 | val 0.58017 | |lam| [0.8347, 0.9979]
+  Ep  50 | train 0.00318 | val 0.00256 | |lam| [0.7127, 0.9999]
+  Ep 100 | train 0.00252 | val 0.00154 | |lam| [0.7144, 1.0000]
+  Ep 150 | train 0.00186 | val 0.00118 | |lam| [0.7187, 1.0000]
+  Ep 200 | train 0.00165 | val 0.00103 | |lam| [0.7199, 1.0000]
+  Ep 250 | train 0.00151 | val 0.00089 | |lam| [0.7211, 0.9999]
+  Ep 300 | train 0.00142 | val 0.00083 | |lam| [0.7208, 0.9999]
+  Ep 350 | train 0.00138 | val 0.00079 | |lam| [0.7205, 1.0000]
+  Ep 400 | train 0.00137 | val 0.00078 | |lam| [0.7204, 1.0000]
+  Final val loss: 0.00078
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/ikeda_seed_0.pt
+
+--- Pruning (threshold=0.03) ---
+    Pruned encoder.kan1: 1/12 edges removed
+    Pruned encoder.kan2: 0/48 edges removed
+    Pruned decoder.kan1: 4/48 edges removed
+    Pruned decoder.kan2: 0/12 edges removed
+  Total edges pruned: 5
+
+--- Retraining (100 epochs, lr=0.0005) ---
+    Retrain ep   1 | train 0.01361 | val 0.00130
+    Retrain ep  25 | train 0.00139 | val 0.00080
+    Retrain ep  50 | train 0.00137 | val 0.00079
+    Retrain ep  75 | train 0.00133 | val 0.00076
+    Retrain ep 100 | train 0.00132 | val 0.00075
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/ikeda_pruned_seed_0.pt
+
+  Koopman spectrum: |lam| in [0.7253, 0.9999]
+  All |lam| <= 1? True
+
+--- Phase 7: Prediction Horizon ---
+  Mean prediction horizon: 6.7 steps (MSE threshold=0.1)
+  Horizon range: [3, 19]
+
+--- Phase 5: Level-Set Lasso Analysis ---
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.695e+03, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.624e+01, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.135e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.073e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+
+   Dim |       R2 | #Active |       x2 |       y2 |  ratio | Active terms
+  ---- | -------- | ------- | -------- | -------- | ------ | ------------------------------
+  z[0] |   0.9999 |      19 |   0.0001 |  -0.0078 |  0.016 | y(+0.0372), x(-0.0481), y^2(-0.0078), xy(+0.0055), x^2(+0...
+  z[1] |   0.9825 |      20 |   0.0638 |   0.0429 |  0.671 | y(+0.0424), x(+0.0352), y^2(+0.0429), xy(-0.1142), x^2(+0...
+  z[2] |   0.9995 |      19 |  -0.0914 |  -0.0191 |  0.209 | y(-0.0606), x(+0.0414), y^2(-0.0191), xy(+0.0249), x^2(-0...
+  z[3] |   0.9989 |      18 |  -0.0336 |   0.0099 |  0.294 | y(-0.0108), x(+0.0830), y^2(+0.0099), xy(-0.0279), x^2(-0...
+  z[4] |   0.9991 |      17 |  -0.0084 |   0.0132 |  0.642 | y(+0.0267), x(+0.0303), y^2(+0.0132), xy(-0.0114), x^2(-0...
+  z[5] |   0.9998 |      20 |   0.0646 |   0.0510 |  0.790 | y(+0.0658), x(-0.0004), y^2(+0.0510), xy(-0.0755), x^2(+0...
+  z[6] |   0.9998 |      21 |   0.0462 |   0.0101 |  0.218 | y(-0.0025), x(-0.0419), y^2(+0.0101), xy(-0.0063), x^2(+0...
+  z[7] |   0.9992 |      19 |   0.0417 |   0.0004 |  0.010 | y(+0.0035), x(-0.0358), y^2(+0.0004), xy(+0.0203), x^2(+0...
+
+======================================================================
+SEED 1
+======================================================================
+
+--- Phase 2-3: Training (seed=1) ---
+  Model [2,6,8]: 1,264 params
+  Ep   1 | train 1.27656 | val 0.57085 | |lam| [0.8976, 0.9943]
+  Ep  50 | train 0.00339 | val 0.00274 | |lam| [0.4917, 0.9992]
+  Ep 100 | train 0.00248 | val 0.00187 | |lam| [0.5219, 0.9993]
+  Ep 150 | train 0.00220 | val 0.00157 | |lam| [0.5272, 0.9993]
+  Ep 200 | train 0.00202 | val 0.00146 | |lam| [0.5315, 0.9994]
+  Ep 250 | train 0.00189 | val 0.00137 | |lam| [0.5353, 0.9995]
+  Ep 300 | train 0.00181 | val 0.00128 | |lam| [0.5379, 0.9995]
+  Ep 350 | train 0.00176 | val 0.00123 | |lam| [0.5396, 0.9995]
+  Ep 400 | train 0.00175 | val 0.00121 | |lam| [0.5401, 0.9995]
+  Final val loss: 0.00121
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/ikeda_seed_1.pt
+
+--- Pruning (threshold=0.03) ---
+    Pruned encoder.kan1: 0/12 edges removed
+    Pruned encoder.kan2: 0/48 edges removed
+    Pruned decoder.kan1: 2/48 edges removed
+    Pruned decoder.kan2: 0/12 edges removed
+  Total edges pruned: 2
+
+--- Retraining (100 epochs, lr=0.0005) ---
+    Retrain ep   1 | train 0.00262 | val 0.00128
+    Retrain ep  25 | train 0.00176 | val 0.00131
+    Retrain ep  50 | train 0.00172 | val 0.00121
+    Retrain ep  75 | train 0.00168 | val 0.00115
+    Retrain ep 100 | train 0.00167 | val 0.00114
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/ikeda_pruned_seed_1.pt
+
+  Koopman spectrum: |lam| in [0.5453, 0.9996]
+  All |lam| <= 1? True
+
+--- Phase 7: Prediction Horizon ---
+  Mean prediction horizon: 6.4 steps (MSE threshold=0.1)
+  Horizon range: [3, 18]
+
+--- Phase 5: Level-Set Lasso Analysis ---
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.039e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 6.725e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.248e+01, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.001e+04, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 9.867e+03, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 5.091e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 7.404e+01, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+
+   Dim |       R2 | #Active |       x2 |       y2 |  ratio | Active terms
+  ---- | -------- | ------- | -------- | -------- | ------ | ------------------------------
+  z[0] |   0.9966 |      20 |   0.0142 |   0.0137 |  0.970 | y(-0.0093), x(+0.0284), y^2(+0.0137), xy(-0.0098), x^2(+0...
+  z[1] |   0.9951 |      21 |   0.0701 |   0.0200 |  0.285 | y(+0.0544), x(-0.0120), y^2(+0.0200), xy(-0.0283), x^2(+0...
+  z[2] |   0.9988 |      19 |  -0.0265 |   0.0002 |  0.009 | y(+0.0089), x(+0.0248), y^2(+0.0002), xy(+0.0172), x^2(-0...
+  z[3] |   0.9379 |      21 |   0.0135 |  -0.0256 |  0.526 | y(-0.0255), x(-0.1095), y^2(-0.0256), xy(+0.1175), x^2(+0...
+  z[4] |   0.9315 |      21 |   0.2265 |   0.0751 |  0.332 | y(+0.1124), x(-0.0895), y^2(+0.0751), xy(-0.1476), x^2(+0...
+  z[5] |   0.9968 |      21 |  -0.0307 |   0.0057 |  0.187 | y(-0.0005), x(-0.0119), y^2(+0.0057), xy(-0.0204), x^2(-0...
+  z[6] |   0.9851 |      15 |  -0.0126 |  -0.0078 |  0.624 | y(+0.0326), x(+0.0023), y^2(-0.0078), xy(+0.0069), x^2(-0...
+  z[7] |   0.9946 |      17 |  -0.0348 |   0.0022 |  0.063 | y(-0.0246), x(+0.0624), y^2(+0.0022), xy(-0.0226), x^2(-0...
+
+======================================================================
+SEED 2
+======================================================================
+
+--- Phase 2-3: Training (seed=2) ---
+  Model [2,6,8]: 1,264 params
+  Ep   1 | train 1.40448 | val 0.58687 | |lam| [0.7862, 0.9967]
+  Ep  50 | train 0.00327 | val 0.00251 | |lam| [0.6342, 0.9993]
+  Ep 100 | train 0.00259 | val 0.00212 | |lam| [0.6168, 0.9995]
+  Ep 150 | train 0.00184 | val 0.00124 | |lam| [0.6159, 0.9995]
+  Ep 200 | train 0.00165 | val 0.00113 | |lam| [0.6193, 0.9996]
+  Ep 250 | train 0.00154 | val 0.00097 | |lam| [0.6218, 0.9996]
+  Ep 300 | train 0.00146 | val 0.00090 | |lam| [0.6223, 0.9996]
+  Ep 350 | train 0.00142 | val 0.00087 | |lam| [0.6225, 0.9996]
+  Ep 400 | train 0.00141 | val 0.00087 | |lam| [0.6225, 0.9996]
+  Final val loss: 0.00087
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/ikeda_seed_2.pt
+
+--- Pruning (threshold=0.03) ---
+    Pruned encoder.kan1: 0/12 edges removed
+    Pruned encoder.kan2: 2/48 edges removed
+    Pruned decoder.kan1: 4/48 edges removed
+    Pruned decoder.kan2: 0/12 edges removed
+  Total edges pruned: 6
+
+--- Retraining (100 epochs, lr=0.0005) ---
+    Retrain ep   1 | train 0.04000 | val 0.00154
+    Retrain ep  25 | train 0.00145 | val 0.00092
+    Retrain ep  50 | train 0.00140 | val 0.00087
+    Retrain ep  75 | train 0.00137 | val 0.00085
+    Retrain ep 100 | train 0.00136 | val 0.00084
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/ikeda_pruned_seed_2.pt
+
+  Koopman spectrum: |lam| in [0.6058, 0.9996]
+  All |lam| <= 1? True
+
+--- Phase 7: Prediction Horizon ---
+  Mean prediction horizon: 6.4 steps (MSE threshold=0.1)
+  Horizon range: [3, 12]
+
+--- Phase 5: Level-Set Lasso Analysis ---
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.433e+03, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.278e+03, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.437e+03, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.527e+04, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 4.583e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.890e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 8.056e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.934e+03, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+
+   Dim |       R2 | #Active |       x2 |       y2 |  ratio | Active terms
+  ---- | -------- | ------- | -------- | -------- | ------ | ------------------------------
+  z[0] |   0.9906 |      21 |   0.0132 |  -0.0077 |  0.581 | y(+0.0078), x(-0.0384), y^2(-0.0077), xy(+0.0480), x^2(+0...
+  z[1] |   0.9780 |      21 |  -0.0817 |  -0.0177 |  0.217 | y(-0.0579), x(+0.0357), y^2(-0.0177), xy(+0.0566), x^2(-0...
+  z[2] |   0.9635 |      20 |  -0.0224 |  -0.0023 |  0.103 | y(+0.0290), x(+0.0124), y^2(-0.0023), xy(+0.0012), x^2(-0...
+  z[3] |   0.9040 |      21 |  -0.1195 |  -0.0657 |  0.550 | y(-0.0753), x(-0.0559), y^2(-0.0657), xy(+0.1505), x^2(-0...
+  z[4] |   0.9971 |      21 |  -0.0370 |  -0.0024 |  0.066 | y(-0.0576), x(+0.0728), y^2(-0.0024), xy(+0.0432), x^2(-0...
+  z[5] |   0.9975 |      21 |   0.0639 |   0.0375 |  0.587 | y(+0.0138), x(-0.0332), y^2(+0.0375), xy(-0.0746), x^2(+0...
+  z[6] |   0.9947 |      21 |  -0.0100 |  -0.0132 |  0.753 | y(-0.0258), x(+0.0166), y^2(-0.0132), xy(+0.0048), x^2(-0...
+  z[7] |   0.9813 |      21 |   0.1274 |   0.0136 |  0.107 | y(+0.0377), x(-0.0963), y^2(+0.0136), xy(+0.0211), x^2(+0...
+
+======================================================================
+SEED 3
+======================================================================
+
+--- Phase 2-3: Training (seed=3) ---
+  Model [2,6,8]: 1,264 params
+  Ep   1 | train 1.12039 | val 0.57859 | |lam| [0.8331, 0.9897]
+  Ep  50 | train 0.00378 | val 0.00338 | |lam| [0.7070, 0.9994]
+  Ep 100 | train 0.00234 | val 0.00173 | |lam| [0.6715, 0.9996]
+  Ep 150 | train 0.00197 | val 0.00151 | |lam| [0.6593, 0.9997]
+  Ep 200 | train 0.00174 | val 0.00109 | |lam| [0.6538, 0.9997]
+  Ep 250 | train 0.00159 | val 0.00095 | |lam| [0.6517, 0.9997]
+  Ep 300 | train 0.00149 | val 0.00088 | |lam| [0.6506, 0.9997]
+  Ep 350 | train 0.00144 | val 0.00082 | |lam| [0.6502, 0.9997]
+  Ep 400 | train 0.00142 | val 0.00081 | |lam| [0.6501, 0.9997]
+  Final val loss: 0.00081
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/ikeda_seed_3.pt
+
+--- Pruning (threshold=0.03) ---
+    Pruned encoder.kan1: 0/12 edges removed
+    Pruned encoder.kan2: 0/48 edges removed
+    Pruned decoder.kan1: 0/48 edges removed
+    Pruned decoder.kan2: 0/12 edges removed
+  Total edges pruned: 0
+
+--- Retraining (100 epochs, lr=0.0005) ---
+    Retrain ep   1 | train 0.00256 | val 0.00084
+    Retrain ep  25 | train 0.00142 | val 0.00083
+    Retrain ep  50 | train 0.00138 | val 0.00079
+    Retrain ep  75 | train 0.00135 | val 0.00075
+    Retrain ep 100 | train 0.00134 | val 0.00074
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/ikeda_pruned_seed_3.pt
+
+  Koopman spectrum: |lam| in [0.6487, 0.9997]
+  All |lam| <= 1? True
+
+--- Phase 7: Prediction Horizon ---
+  Mean prediction horizon: 6.6 steps (MSE threshold=0.1)
+  Horizon range: [3, 14]
+
+--- Phase 5: Level-Set Lasso Analysis ---
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 8.512e+01, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.477e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 6.555e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 6.192e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.885e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 6.243e+03, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.023e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+
+   Dim |       R2 | #Active |       x2 |       y2 |  ratio | Active terms
+  ---- | -------- | ------- | -------- | -------- | ------ | ------------------------------
+  z[0] |   0.9993 |      19 |  -0.0038 |  -0.0045 |  0.852 | y(+0.0201), x(-0.0435), y^2(-0.0045), xy(+0.0363), x^2(-0...
+  z[1] |   0.9974 |      19 |   0.0610 |   0.0107 |  0.175 | y(+0.0033), x(-0.0228), y^2(+0.0107), xy(-0.0171), x^2(+0...
+  z[2] |   0.9957 |      20 |   0.0000 |   0.0359 |  0.000 | y(+0.0417), x(+0.0858), y^2(+0.0359), xy(-0.0863), y^3(-0...
+  z[3] |   0.9960 |      20 |  -0.0172 |   0.0049 |  0.283 | y(-0.0163), x(+0.0053), y^2(+0.0049), xy(+0.0450), x^2(-0...
+  z[4] |   0.9997 |      19 |   0.0257 |   0.0340 |  0.756 | y(+0.0270), x(-0.0176), y^2(+0.0340), xy(-0.0487), x^2(+0...
+  z[5] |   0.9946 |      19 |  -0.0348 |  -0.0170 |  0.489 | y(+0.0020), x(+0.0058), y^2(-0.0170), xy(+0.0324), x^2(-0...
+  z[6] |   0.9582 |      21 |  -0.1233 |  -0.0213 |  0.173 | y(-0.0438), x(+0.0585), y^2(-0.0213), xy(+0.0370), x^2(-0...
+  z[7] |   0.9985 |      20 |   0.1375 |   0.0336 |  0.244 | y(+0.0859), x(-0.0550), y^2(+0.0336), xy(-0.0750), x^2(+0...
+
+======================================================================
+SEED 4
+======================================================================
+
+--- Phase 2-3: Training (seed=4) ---
+  Model [2,6,8]: 1,264 params
+  Ep   1 | train 1.12364 | val 0.59431 | |lam| [0.8865, 0.9741]
+  Ep  50 | train 0.00260 | val 0.00189 | |lam| [0.6339, 0.9994]
+  Ep 100 | train 0.00179 | val 0.00113 | |lam| [0.6164, 0.9995]
+  Ep 150 | train 0.00227 | val 0.00885 | |lam| [0.6004, 0.9996]
+  Ep 200 | train 0.00141 | val 0.00071 | |lam| [0.5867, 0.9997]
+  Ep 250 | train 0.00127 | val 0.00059 | |lam| [0.5763, 0.9997]
+  Ep 300 | train 0.00119 | val 0.00051 | |lam| [0.5687, 0.9997]
+  Ep 350 | train 0.00115 | val 0.00048 | |lam| [0.5645, 0.9998]
+  Ep 400 | train 0.00114 | val 0.00047 | |lam| [0.5636, 0.9998]
+  Final val loss: 0.00047
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/ikeda_seed_4.pt
+
+--- Pruning (threshold=0.03) ---
+    Pruned encoder.kan1: 0/12 edges removed
+    Pruned encoder.kan2: 0/48 edges removed
+    Pruned decoder.kan1: 1/48 edges removed
+    Pruned decoder.kan2: 1/12 edges removed
+  Total edges pruned: 2
+
+--- Retraining (100 epochs, lr=0.0005) ---
+    Retrain ep   1 | train 0.10792 | val 0.00082
+    Retrain ep  25 | train 0.00122 | val 0.00060
+    Retrain ep  50 | train 0.00116 | val 0.00047
+    Retrain ep  75 | train 0.00112 | val 0.00045
+    Retrain ep 100 | train 0.00112 | val 0.00045
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/ikeda_pruned_seed_4.pt
+
+  Koopman spectrum: |lam| in [0.5513, 0.9997]
+  All |lam| <= 1? True
+
+--- Phase 7: Prediction Horizon ---
+  Mean prediction horizon: 7.2 steps (MSE threshold=0.1)
+  Horizon range: [4, 13]
+
+--- Phase 5: Level-Set Lasso Analysis ---
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.109e+02, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.339e+04, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.234e+03, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.320e+03, tolerance: 3.200e+01
+  model = cd_fast.enet_coordinate_descent(
+
+   Dim |       R2 | #Active |       x2 |       y2 |  ratio | Active terms
+  ---- | -------- | ------- | -------- | -------- | ------ | ------------------------------
+  z[0] |   0.9997 |      20 |   0.0621 |   0.0255 |  0.411 | y(+0.0334), x(-0.0323), y^2(+0.0255), xy(-0.0435), x^2(+0...
+  z[1] |   0.9977 |      21 |   0.0668 |   0.0251 |  0.375 | y(+0.0094), x(-0.0145), y^2(+0.0251), xy(-0.0608), x^2(+0...
+  z[2] |   0.9997 |      17 |   0.0063 |   0.0077 |  0.816 | y(+0.0048), x(-0.0555), y^2(+0.0077), xy(+0.0085), x^2(+0...
+  z[3] |   0.8531 |      21 |  -0.0149 |   0.0382 |  0.391 | y(+0.0134), x(+0.1004), y^2(+0.0382), xy(-0.1143), x^2(-0...
+  z[4] |   0.9910 |      21 |  -0.0918 |  -0.0242 |  0.264 | y(-0.0292), x(+0.0497), y^2(-0.0242), xy(+0.0472), x^2(-0...
+  z[5] |   0.9986 |      16 |   0.0503 |   0.0265 |  0.528 | y(+0.0336), x(+0.0116), y^2(+0.0265), xy(-0.0250), x^2(+0...
+  z[6] |   0.9829 |      21 |  -0.1055 |  -0.0349 |  0.331 | y(-0.0829), x(+0.0446), y^2(-0.0349), xy(+0.0696), x^2(-0...
+  z[7] |   0.9900 |      18 |  -0.0198 |  -0.0040 |  0.200 | y(+0.0156), x(-0.0097), y^2(-0.0040), xy(-0.0120), x^2(-0...
+
+
+======================================================================
+SUMMARY ACROSS SEEDS
+======================================================================
+
+Seed |  Val Loss |  Horizon | #Pruned | |lam| min | |lam| max
+---- | --------- | -------- | ------- | --------- | ---------
+   0 |   0.00078 |      6.7 |       5 |    0.7253 |    0.9999
+   1 |   0.00121 |      6.4 |       2 |    0.5453 |    0.9996
+   2 |   0.00087 |      6.4 |       6 |    0.6058 |    0.9996
+   3 |   0.00081 |      6.6 |       0 |    0.6487 |    0.9997
+   4 |   0.00047 |      7.2 |       2 |    0.5513 |    0.9997
+
+Best seed: 4 (val_loss=0.00047)
+
+Lasso analysis for best seed 4:
+  z[0]: R2=0.9997, x2=+0.0621, y2=+0.0255, ratio=0.411
+  z[1]: R2=0.9977, x2=+0.0668, y2=+0.0251, ratio=0.375
+  z[2]: R2=0.9997, x2=+0.0063, y2=+0.0077, ratio=0.816 <-- r2 pattern
+  z[3]: R2=0.8531, x2=-0.0149, y2=+0.0382, ratio=0.391
+  z[4]: R2=0.9910, x2=-0.0918, y2=-0.0242, ratio=0.264
+  z[5]: R2=0.9986, x2=+0.0503, y2=+0.0265, ratio=0.528 <-- r2 pattern
+  z[6]: R2=0.9829, x2=-0.1055, y2=-0.0349, ratio=0.331
+  z[7]: R2=0.9900, x2=-0.0198, y2=-0.0040, ratio=0.200
+
+--- Plotting eigenvalues ---
+  Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/eigenvalues.png
+
+Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/results.json
+Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/config.json
+
+All results in /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda/
+Done.

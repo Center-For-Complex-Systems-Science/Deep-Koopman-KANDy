@@ -1,0 +1,62 @@
+\begin{table}[ht]
+\centering
+{\color{blue}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+System & Library / method & Atoms & 1-step nMSE $\downarrow$ & $\mathrm{VPT}_{0.5}$ (steps) $\uparrow$ \\
+\midrule
+\multirow{12}{*}{Lorenz}
+ & Ours (no re-fit) & $16$ & $3.4\times10^{-5}$ & $128$ \\
+ & EDMD $\mathcal{T}$ & $10$ & $7.7\times10^{-7}$ & $301$ \\
+ & EDMD deg-$D$ & $19$ & $3.8\times10^{-10}$ & $\infty$ \\
+ & EDMD target & $5$ & $1.0\times10^{-5}$ & $296$ \\
+ & EDMD$_{\mathrm{lift}}$ $\mathcal{T}$ & $10$ & $7.7\times10^{-7}$ & $24$ \\
+ & EDMD$_{\mathrm{lift}}$ deg-$D$ & $19$ & $3.8\times10^{-10}$ & $27$ \\
+ & EDMD$_{\mathrm{lift}}$ target & $5$ & $1.0\times10^{-5}$ & $22$ \\
+ & SINDy $\mathcal{T}$ & $10$ & $6.6\times10^{-16}$ & $\infty$ \\
+ & SINDy deg-$D$ & $19$ & $6.6\times10^{-16}$ & $\infty$ \\
+ & SINDy target & $5$ & $6.6\times10^{-16}$ & $\infty$ \\
+ & KANDy $\mathcal{T}$ & $10$ & $1.5\times10^{-6}$ & $286$ \\
+ & KANDy (state) & $3$ & $2.7\times10^{-5}$ & $93$ \\
+\midrule
+\multirow{9}{*}{Ikeda}
+ & Ours (no re-fit) & $16$ & $5.7\times10^{-3}$ & $5$ \\
+ & EDMD $\mathcal{T}$ & $9$ & $1.1\times10^{-1}$ & $2$ \\
+ & EDMD deg-$D$ & $9$ & $1.1\times10^{-1}$ & $2$ \\
+ & EDMD$_{\mathrm{lift}}$ $\mathcal{T}$ & $9$ & $1.1\times10^{-1}$ & $2$ \\
+ & EDMD$_{\mathrm{lift}}$ deg-$D$ & $9$ & $1.1\times10^{-1}$ & $2$ \\
+ & SINDy $\mathcal{T}$ & $9$ & $1.1\times10^{-1}$ & $2$ \\
+ & SINDy deg-$D$ & $9$ & $1.1\times10^{-1}$ & $2$ \\
+ & KANDy $\mathcal{T}$ & $9$ & $7.0\times10^{-3}$ & $4$ \\
+ & KANDy (state) & $2$ & $1.7\times10^{-1}$ & $2$ \\
+\midrule
+\multirow{9}{*}{Standard map}
+ & Ours (no re-fit) & $32$ & $4.0\times10^{-4}$ & $8$ \\
+ & EDMD $\mathcal{T}$ & $34$ & $6.5\times10^{-3}$ & $2$ \\
+ & EDMD deg-$D$ & $34$ & $6.5\times10^{-3}$ & $2$ \\
+ & EDMD$_{\mathrm{lift}}$ $\mathcal{T}$ & $34$ & $6.5\times10^{-3}$ & $3$ \\
+ & EDMD$_{\mathrm{lift}}$ deg-$D$ & $34$ & $6.5\times10^{-3}$ & $3$ \\
+ & SINDy $\mathcal{T}$ & $34$ & $6.5\times10^{-3}$ & $5$ \\
+ & SINDy deg-$D$ & $34$ & $6.5\times10^{-3}$ & $5$ \\
+ & KANDy $\mathcal{T}$ & $34$ & $3.6\times10^{-3}$ & $5$ \\
+ & KANDy (state) & $4$ & $6.1\times10^{-1}$ & $1$ \\
+\midrule
+\multirow{9}{*}{Cat map}
+ & Ours (no re-fit) & $24$ & $1.2\times10^{-3}$ & $5$ \\
+ & EDMD $\mathcal{T}$ & $34$ & $2.3\times10^{-15}$ & $19$ \\
+ & EDMD deg-$D$ & $34$ & $2.3\times10^{-15}$ & $19$ \\
+ & EDMD$_{\mathrm{lift}}$ $\mathcal{T}$ & $34$ & $2.3\times10^{-15}$ & $2$ \\
+ & EDMD$_{\mathrm{lift}}$ deg-$D$ & $34$ & $2.3\times10^{-15}$ & $2$ \\
+ & SINDy $\mathcal{T}$ & $34$ & $2.3\times10^{-15}$ & $19$ \\
+ & SINDy deg-$D$ & $34$ & $2.3\times10^{-15}$ & $19$ \\
+ & KANDy $\mathcal{T}$ & $34$ & $7.9\times10^{-7}$ & $9$ \\
+ & KANDy (state) & $4$ & $1.0\times10^{0}$ & $1$ \\
+\bottomrule
+\end{tabular}
+\caption{\rev{Discovered-dictionary ablation. $\mathcal{T}$ is the union of the per-coordinate inner supports read off the trained encoder (Algorithm~\ref{alg:deep-koopman-kandy}, Phase~2--3); deg-$D$ is the full monomial library of the same degree; target is the known dictionary where one exists. EDMD$_{\mathrm{lift}}$ propagates inside the lift without re-lifting and is the arm that tests invariance. Medians over three seeds. Reproducible via \texttt{experiments/discovered\_dictionary\_ablation.py}.}}
+\label{tab:dictionary-ablation}
+}
+\end{table}

@@ -1,0 +1,491 @@
+{
+  "DMD": {
+    "mse_mean": 0.2779695689678192,
+    "mse_std": 0.0,
+    "horizon_mean": 0.12466560000000002,
+    "horizon_std": 0.0037399258602277144,
+    "detection_rate": 0.6,
+    "per_term": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0,
+      "xy": 0.0,
+      "xz": 0.0
+    },
+    "per_fp": {
+      "x^2": 0.0,
+      "y^2": 0.0,
+      "z^2": 0.0,
+      "yz": 0.0
+    },
+    "avg_false_positives": 0.0,
+    "seeds": [
+      {
+        "mse": 0.2779695689678192,
+        "horizon": 0.12955800000000003,
+        "detected": [
+          "x",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 0.6
+      },
+      {
+        "mse": 0.2779695689678192,
+        "horizon": 0.12865200000000002,
+        "detected": [
+          "x",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 0.6
+      },
+      {
+        "mse": 0.2779695689678192,
+        "horizon": 0.12049800000000002,
+        "detected": [
+          "x",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 0.6
+      },
+      {
+        "mse": 0.2779695689678192,
+        "horizon": 0.12321600000000002,
+        "detected": [
+          "x",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 0.6
+      },
+      {
+        "mse": 0.2779695689678192,
+        "horizon": 0.12140400000000003,
+        "detected": [
+          "x",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 0.6
+      }
+    ]
+  },
+  "EDMD-d2": {
+    "mse_mean": 0.00020994934311602265,
+    "mse_std": 0.0,
+    "horizon_mean": 2.6351916,
+    "horizon_std": 0.12128440318128296,
+    "detection_rate": 1.0,
+    "per_term": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0,
+      "xy": 1.0,
+      "xz": 1.0
+    },
+    "per_fp": {
+      "x^2": 0.0,
+      "y^2": 0.0,
+      "z^2": 0.0,
+      "yz": 0.0
+    },
+    "avg_false_positives": 0.0,
+    "seeds": [
+      {
+        "mse": 0.00020994934311602265,
+        "horizon": 2.5621680000000007,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.00020994934311602265,
+        "horizon": 2.7152820000000006,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.00020994934311602265,
+        "horizon": 2.83578,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.00020994934311602265,
+        "horizon": 2.5295520000000002,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.00020994934311602265,
+        "horizon": 2.533176,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 1.0
+      }
+    ]
+  },
+  "EDMD-d3": {
+    "mse_mean": 3.469029508096355e-08,
+    "mse_std": 0.0,
+    "horizon_mean": 5.2832484000000015,
+    "horizon_std": 0.19753592609912754,
+    "detection_rate": 1.0,
+    "per_term": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0,
+      "xy": 1.0,
+      "xz": 1.0
+    },
+    "per_fp": {
+      "x^2": 0.0,
+      "y^2": 0.0,
+      "z^2": 0.0,
+      "yz": 0.0
+    },
+    "avg_false_positives": 0.0,
+    "seeds": [
+      {
+        "mse": 3.469029508096355e-08,
+        "horizon": 5.611764000000001,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 3.469029508096355e-08,
+        "horizon": 5.371674000000001,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 3.469029508096355e-08,
+        "horizon": 5.251176,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 3.469029508096355e-08,
+        "horizon": 5.1370200000000015,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 3.469029508096355e-08,
+        "horizon": 5.044608000000001,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "z"
+        ],
+        "false_positives": [],
+        "det_rate": 1.0
+      }
+    ]
+  },
+  "MLP-Koopman": {
+    "mse_mean": 0.01938834761520493,
+    "mse_std": 0.0031250513602743587,
+    "horizon_mean": 0.4176660000000001,
+    "horizon_std": 0.10531134489313103,
+    "detection_rate": 1.0,
+    "per_term": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0,
+      "xy": 1.0,
+      "xz": 1.0
+    },
+    "per_fp": {
+      "x^2": 0.6,
+      "y^2": 0.8,
+      "z^2": 0.6,
+      "yz": 1.0
+    },
+    "avg_false_positives": 3.0,
+    "seeds": [
+      {
+        "mse": 0.021367093707806373,
+        "horizon": 0.39682800000000007,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "y^2",
+          "yz",
+          "z",
+          "z^2"
+        ],
+        "false_positives": [
+          "y^2",
+          "yz",
+          "z^2"
+        ],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.013952731847723318,
+        "horizon": 0.5436,
+        "detected": [
+          "x",
+          "x^2",
+          "xy",
+          "xz",
+          "y",
+          "yz",
+          "z"
+        ],
+        "false_positives": [
+          "x^2",
+          "yz"
+        ],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.01993201860016401,
+        "horizon": 0.3016980000000001,
+        "detected": [
+          "x",
+          "x^2",
+          "xy",
+          "xz",
+          "y",
+          "y^2",
+          "yz",
+          "z"
+        ],
+        "false_positives": [
+          "x^2",
+          "y^2",
+          "yz"
+        ],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.02317190137610464,
+        "horizon": 0.536352,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "y^2",
+          "yz",
+          "z",
+          "z^2"
+        ],
+        "false_positives": [
+          "y^2",
+          "yz",
+          "z^2"
+        ],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.018517992544226303,
+        "horizon": 0.30985200000000007,
+        "detected": [
+          "x",
+          "x^2",
+          "xy",
+          "xz",
+          "y",
+          "y^2",
+          "yz",
+          "z",
+          "z^2"
+        ],
+        "false_positives": [
+          "x^2",
+          "y^2",
+          "yz",
+          "z^2"
+        ],
+        "det_rate": 1.0
+      }
+    ]
+  },
+  "KAN-stable": {
+    "mse_mean": 0.006078759069227784,
+    "mse_std": 0.002620381612280162,
+    "horizon_mean": 0.8442108000000001,
+    "horizon_std": 0.1372144702025263,
+    "detection_rate": 0.96,
+    "per_term": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0,
+      "xy": 1.0,
+      "xz": 0.8
+    },
+    "per_fp": {
+      "x^2": 0.8,
+      "y^2": 1.0,
+      "z^2": 0.2,
+      "yz": 0.0
+    },
+    "avg_false_positives": 2.0,
+    "seeds": [
+      {
+        "mse": 0.004999900817588477,
+        "horizon": 0.9087180000000001,
+        "detected": [
+          "x",
+          "xy",
+          "xz",
+          "y",
+          "y^2",
+          "z",
+          "z^2"
+        ],
+        "false_positives": [
+          "y^2",
+          "z^2"
+        ],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.010735296690378572,
+        "horizon": 0.6414480000000001,
+        "detected": [
+          "x",
+          "x^2",
+          "xy",
+          "y",
+          "y^2",
+          "z"
+        ],
+        "false_positives": [
+          "x^2",
+          "y^2"
+        ],
+        "det_rate": 0.8
+      },
+      {
+        "mse": 0.0028469506051222388,
+        "horizon": 1.02378,
+        "detected": [
+          "x",
+          "x^2",
+          "xy",
+          "xz",
+          "y",
+          "y^2",
+          "z"
+        ],
+        "false_positives": [
+          "x^2",
+          "y^2"
+        ],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.00660593858397289,
+        "horizon": 0.7347660000000001,
+        "detected": [
+          "x",
+          "x^2",
+          "xy",
+          "xz",
+          "y",
+          "y^2",
+          "z"
+        ],
+        "false_positives": [
+          "x^2",
+          "y^2"
+        ],
+        "det_rate": 1.0
+      },
+      {
+        "mse": 0.005205708649076739,
+        "horizon": 0.9123420000000001,
+        "detected": [
+          "x",
+          "x^2",
+          "xy",
+          "xz",
+          "y",
+          "y^2",
+          "z"
+        ],
+        "false_positives": [
+          "x^2",
+          "y^2"
+        ],
+        "det_rate": 1.0
+      }
+    ]
+  }
+}

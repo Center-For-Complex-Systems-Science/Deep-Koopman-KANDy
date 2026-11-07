@@ -1,0 +1,50 @@
+======================================================================
+Mackey-Glass Ikeda-analog: dense inner g vs Hill outer h
+======================================================================
+  Loaded Run D model (latent=128, N=64), x_data=(4000, 64)
+
+--- 1. Scanning all latent dims (degree-2, LassoLars) ---
+  scanned 16/128
+  scanned 32/128
+  scanned 48/128
+  scanned 64/128
+  scanned 80/128
+  scanned 96/128
+  scanned 112/128
+  scanned 128/128
+  Saved hill_scan.png/pdf
+
+  Top-10 dims by outer-function gain:
+   dim   r2_hog   r2_aff     gain  nonaff  dfrac top_j  #act
+    45   0.9999   0.9999  -0.0000   False   0.20    49    16
+    82   0.9999   0.9999  -0.0000   False   0.25    46    13
+    60   0.9978   0.9978  -0.0000   False   0.31     0    15
+    57   0.9999   0.9999  -0.0000   False   0.28    37    15
+    10   0.9995   0.9995  -0.0000   False   0.43    63    16
+   126   0.9990   0.9990  -0.0000   False   0.51    63    18
+    27   0.9997   0.9997  -0.0000   False   0.54    13    18
+    39   0.9983   0.9983  -0.0000   False   0.34    63    16
+    87   0.9992   0.9992  -0.0000   False   0.24    63    16
+    70   0.9906   0.9906  -0.0000   False   0.50     0    16
+
+--- 2/3. Hill-recovery figures for dims [45, 82, 60] ---
+  z[45]: R2(h.g)=0.9999 affine=0.9999 gain=-0.0000 used_affine=True
+    shape corr(h', Hill')=-0.177, corr(g,u)=0.595, delay_frac=0.195, top_idx=49
+    readouts: linear R2=0.9983(38t), poly-deg2 R2=0.9999(16t), linear+Hill R2=0.9987(51t)
+    Hill atoms surviving: [('hill(s_8)', 0.04001809656466428), ('hill(s_10)', 0.03959689988811896), ('hill(s_14)', -0.06066451510113934), ('sigmoid(s_0)', 0.11692959344303394)]
+    reduced deg-3 on top-8 idxs: R2=0.9999 (36 terms)
+  z[82]: R2(h.g)=0.9999 affine=0.9999 gain=-0.0000 used_affine=True
+    shape corr(h', Hill')=-0.900, corr(g,u)=0.755, delay_frac=0.246, top_idx=46
+    readouts: linear R2=0.9993(42t), poly-deg2 R2=0.9999(13t), linear+Hill R2=0.9996(54t)
+    Hill atoms surviving: [('hill(s_8)', -0.015737569079069286), ('hill(s_10)', -0.005092026178820734), ('hill(s_14)', 0.040689077359649425)]
+    reduced deg-3 on top-8 idxs: R2=0.9999 (20 terms)
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 5.598e-01, tolerance: 4.000e-01
+  model = cd_fast.enet_coordinate_descent(
+  z[60]: R2(h.g)=0.9978 affine=0.9978 gain=-0.0000 used_affine=True
+    shape corr(h', Hill')=-0.029, corr(g,u)=-0.443, delay_frac=0.308, top_idx=0
+    readouts: linear R2=0.9771(14t), poly-deg2 R2=0.9978(15t), linear+Hill R2=0.9812(26t)
+    Hill atoms surviving: [('hill(s_0)', 0.017673094565049875), ('hill(s_6)', 0.01549574212284033), ('hill(s_8)', 0.040812690850538215), ('hill(s_10)', 0.007305989923038598), ('hill(s_14)', -0.009366026259136124), ('sigmoid(s_0)', -0.11157605389883565)]
+    reduced deg-3 on top-8 idxs: R2=0.9985 (22 terms)
+
+  Saved hill_scan_summary.json (0 non-affine-h dims, max gain -0.0000)
+======================================================================

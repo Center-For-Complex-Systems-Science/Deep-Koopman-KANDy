@@ -1,0 +1,73 @@
+======================================================================
+MG MINIMAL EMBEDDING (4 delays) -- representation diagnostic
+======================================================================
+  State: [x(t), x(t-tau/3), x(t-2tau/3), x(t-tau)], tau=17.0, spacing=5.67
+  Model: KANAutoEncoder(4, 8, 16) + StableKoopman, dt_save=4.0
+  PRE-REGISTERED criterion: max outer gain >= 0.02 with g loading on x(t-tau)
+
+--- Data ---
+  Reusing cached window data: results/mackey_glass/mg_data_N64_dt4_T800_n24.pt
+  state (24, 200, 4), window (24, 200, 64)
+  state range [0.418, 1.320]
+
+  [surrogate diagnostic] linear predictability of Hill(x(t-tau)) = 0.2u/(1+u^10):
+    64-sample window : R^2 = 1.0000  (fully aliased)
+    8-delay subsample: R^2 = 0.9982
+    4-delay minimal  : R^2 = 0.9089  (<- this run; ~9.1% of Hill variance left for a nonlinear h)
+    2-delay          : R^2 = 0.6216
+  [mechanism] Hill(x(t-tau)) = x'(t) + gamma*x(t) with x'(t) a finite difference of window samples:
+    fd1 stencil: R^2 = 0.999337
+    fd2 stencil: R^2 = 0.999996
+    fd4 stencil: R^2 = 0.999999
+    -> the window representation linearizes Hill BY CONSTRUCTION (the DDE itself is the linear identity).
+
+--- Training (300 epochs) ---
+  Stable Koopman [4,8,16]: 3,456 params
+  Ep   1 | train 1.33762 | val 1.30130 | |lam| [0.9937, 0.9969]
+  Ep  25 | train 0.05179 | val 0.05151 | |lam| [0.8784, 0.9935]
+  Ep  50 | train 0.04410 | val 0.04411 | |lam| [0.6741, 0.9898]
+  Ep  75 | train 0.04022 | val 0.04004 | |lam| [0.6905, 0.9820]
+  Ep 100 | train 0.02742 | val 0.02698 | |lam| [0.5359, 0.9690]
+  Ep 125 | train 0.00513 | val 0.00500 | |lam| [0.3871, 0.9907]
+  Ep 150 | train 0.00336 | val 0.00336 | |lam| [0.3671, 0.9927]
+  Ep 175 | train 0.00292 | val 0.00290 | |lam| [0.3610, 0.9947]
+  Ep 200 | train 0.00263 | val 0.00265 | |lam| [0.3592, 0.9953]
+  Ep 225 | train 0.00249 | val 0.00250 | |lam| [0.3596, 0.9957]
+  Ep 250 | train 0.00242 | val 0.00242 | |lam| [0.3603, 0.9958]
+  Ep 275 | train 0.00239 | val 0.00239 | |lam| [0.3606, 0.9958]
+  Ep 300 | train 0.00238 | val 0.00239 | |lam| [0.3606, 0.9959]
+  |lambda| in [0.3606, 0.9959] (all <=1: True)
+
+--- Prediction horizon ---
+  Horizon NRMSE>0.5: 0.62 tau_L (72 t.u., 18 steps)
+  Horizon NRMSE>1.0: 2.68 tau_L (312 t.u., 78 steps)
+
+--- Level-set scan (all latent dims, degree 2 and 3) ---
+  degree 2: 1/16 non-affine h, max gain +0.0001
+  degree 3: 1/16 non-affine h, max gain +0.0000
+
+  Top-8 by outer gain:
+   dim deg   r2_hog   r2_aff      gain  nonaff  dlyLoad    top  #act
+    13   2   0.9997   0.9996  +0.00012    True    0.533  x_tm3    10
+     6   3   0.9997   0.9997  +0.00004    True    0.162    x_t    16
+     1   3   0.9998   0.9998  -0.00000   False    0.251  x_tm1    14
+     8   3   0.9997   0.9997  -0.00000   False    0.193    x_t    16
+     1   2   0.9998   0.9998  -0.00000   False    0.441  x_tm3    13
+     6   2   0.9994   0.9994  -0.00000   False    0.202  x_tm2    12
+     4   2   0.9996   0.9996  -0.00000   False    0.344  x_tm3    11
+     9   3   0.9997   0.9997  -0.00000   False    0.240    x_t    14
+
+  Best dim z[13] (deg 2): gain=+0.00012, non-affine=True, delayed load=0.533, corr(g,u)=-0.344, h'-Hill shape corr=0.366
+  Saved representation_diagnostic.png/pdf
+
+======================================================================
+MINIMAL-EMBEDDING SUMMARY
+======================================================================
+  Surrogate R^2 (Hill linear-predictability): window64=1.0000  vs  4-delay=0.9089
+  Final train/val loss: 0.00238 / 0.00239
+  |lambda| in [0.3606, 0.9959]
+  Horizon: NRMSE>0.5 at 0.62 tau_L, >1.0 at 2.68 tau_L
+  Non-affine-h dims: 2/32, max gain +0.00012 (criterion 0.02)
+  VERDICT: ALIASING CEILING BINDS: no meaningful non-affine h even at 4 delays
+  Wall-clock: 30.2s   Results: /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/mackey_glass_minimal/
+======================================================================

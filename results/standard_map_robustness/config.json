@@ -1,0 +1,91 @@
+{
+  "system": "standard_map",
+  "kappa": 0.97,
+  "checkpoint": "results/standard_map/standard_map_stable_32_128.pt",
+  "architecture": "[4,32,128] KANLinear enc/dec on the (cos th, sin th, cos p, sin p) embedding + stable propagator expm(K - L^T L)",
+  "kan_implementation": "KANLinear (kan.py), NOT pykan",
+  "seed": 42,
+  "n_analysis_pts": 8000,
+  "n_traj": 200,
+  "n_steps": 2000,
+  "paper_alpha": 1e-05,
+  "paper_degree": 2,
+  "h_degree": 3,
+  "sparsity_threshold": 0.0001,
+  "alpha_sweep": [
+    1e-06,
+    1e-05,
+    5e-05,
+    0.0001,
+    0.0005,
+    0.001,
+    0.005,
+    0.01
+  ],
+  "alpha_sweep_degrees": [
+    2,
+    3
+  ],
+  "degree_sweep": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "basis_sweep": [
+    "poly_trig",
+    "fourier",
+    "rbf"
+  ],
+  "fourier_max_order": 3,
+  "rbf_per_dim": 8,
+  "rbf_kappa": 4.0,
+  "eq13_poly_atoms": [
+    "cx",
+    "cxcy",
+    "cxsx",
+    "cxsy",
+    "cy",
+    "cysy",
+    "sx",
+    "sxcy",
+    "sxsy",
+    "sy"
+  ],
+  "eq13_poly_full_atoms": [
+    "cx",
+    "cx^2",
+    "cxcy",
+    "cxsx",
+    "cxsy",
+    "cy",
+    "cy^2",
+    "cysy",
+    "sx",
+    "sx^2",
+    "sxcy",
+    "sxsy",
+    "sy",
+    "sy^2"
+  ],
+  "eq13_fourier_atoms": [
+    "cos(0,1)",
+    "cos(0,2)",
+    "cos(1,-1)",
+    "cos(1,0)",
+    "cos(1,1)",
+    "cos(2,0)",
+    "sin(0,1)",
+    "sin(0,2)",
+    "sin(1,-1)",
+    "sin(1,0)",
+    "sin(1,1)",
+    "sin(2,0)"
+  ],
+  "eig_mag_min": 0.011255720630288124,
+  "eig_mag_max": 0.9826181530952454,
+  "n_sigma_gt_0.99": 47,
+  "n_sigma_gt_0.95": 85,
+  "tau_axis_note": "Prune-tau axis NOT run for the standard map. The paper's tau protocol (appendix Eq. edge-importance) is a PyKAN-style layerwise attribution on activation variance, B_ij = mean_k r_kij, applied to a PyKAN encoder. The committed standard-map encoder (results/standard_map/standard_map_stable_32_128.pt) is KANLinear (kan.py), which exposes no PyKAN activation graph and therefore no attribution scores; the KANLinear surrogate used for Ikeda (spline_weight magnitude) is a different score and would not be the same tau axis. Retraining a PyKAN [4,32,128] standard-map encoder purely to add this axis was judged out of scope: the tau axis is already covered on two systems (Lorenz tab:prune-sweep and Ikeda, results/ikeda_robustness/axis_tau.csv)."
+}

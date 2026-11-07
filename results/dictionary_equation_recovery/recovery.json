@@ -1,0 +1,218 @@
+{
+  "sindy_disc_seed0": {
+    "exact": true,
+    "rows": [
+      {
+        "eq": "xdot",
+        "n_active": 2,
+        "false_pos": [],
+        "false_neg": [],
+        "max_rel_err": 9.773655662570491e-10,
+        "terms": {
+          "y": 10.0,
+          "x": -10.0
+        }
+      },
+      {
+        "eq": "ydot",
+        "n_active": 3,
+        "false_pos": [],
+        "false_neg": [],
+        "max_rel_err": 9.462838312934707e-08,
+        "terms": {
+          "x": 28.0,
+          "x*z": -1.0,
+          "y": -1.0
+        }
+      },
+      {
+        "eq": "zdot",
+        "n_active": 2,
+        "false_pos": [],
+        "false_neg": [],
+        "max_rel_err": 1.3169249024613805e-10,
+        "terms": {
+          "z": -2.6667,
+          "x*y": 1.0
+        }
+      }
+    ],
+    "threshold": 0.0001
+  },
+  "sindy_poly_seed0": {
+    "exact": true,
+    "rows": [
+      {
+        "eq": "xdot",
+        "n_active": 2,
+        "false_pos": [],
+        "false_neg": [],
+        "max_rel_err": 9.773655662570491e-10,
+        "terms": {
+          "y": 10.0,
+          "x": -10.0
+        }
+      },
+      {
+        "eq": "ydot",
+        "n_active": 3,
+        "false_pos": [],
+        "false_neg": [],
+        "max_rel_err": 9.462838312934707e-08,
+        "terms": {
+          "x": 28.0,
+          "x*z": -1.0,
+          "y": -1.0
+        }
+      },
+      {
+        "eq": "zdot",
+        "n_active": 2,
+        "false_pos": [],
+        "false_neg": [],
+        "max_rel_err": 1.3169249024613805e-10,
+        "terms": {
+          "z": -2.6667,
+          "x*y": 1.0
+        }
+      }
+    ],
+    "threshold": 0.001
+  },
+  "sindy_target_seed0": {
+    "exact": true,
+    "rows": [
+      {
+        "eq": "xdot",
+        "n_active": 2,
+        "false_pos": [],
+        "false_neg": [],
+        "max_rel_err": 9.773664544354688e-10,
+        "terms": {
+          "y": 10.0,
+          "x": -10.0
+        }
+      },
+      {
+        "eq": "ydot",
+        "n_active": 3,
+        "false_pos": [],
+        "false_neg": [],
+        "max_rel_err": 9.46284521852192e-08,
+        "terms": {
+          "x": 28.0,
+          "x*z": -1.0,
+          "y": -1.0
+        }
+      },
+      {
+        "eq": "zdot",
+        "n_active": 2,
+        "false_pos": [],
+        "false_neg": [],
+        "max_rel_err": 1.3169249024613805e-10,
+        "terms": {
+          "z": -2.6667,
+          "x*y": 1.0
+        }
+      }
+    ],
+    "threshold": 0.0001
+  },
+  "kandy_disc_seed0": {
+    "exact": false,
+    "rows": [
+      {
+        "eq": "xdot",
+        "n_active": 9,
+        "false_pos": [
+          "z",
+          "z^2",
+          "y*z",
+          "y^2",
+          "x*z",
+          "x*y",
+          "x^2"
+        ],
+        "false_neg": [],
+        "max_rel_err": 0.5481849554593679,
+        "terms": {
+          "y": 8.298,
+          "x": -4.5182,
+          "x*z": -0.1167,
+          "z": 0.0229,
+          "y^2": -0.0135,
+          "x^2": 0.0085,
+          "y*z": 0.0077,
+          "x*y": -0.0047,
+          "z^2": 0.001
+        }
+      },
+      {
+        "eq": "ydot",
+        "n_active": 10,
+        "false_pos": [
+          "z",
+          "z^2",
+          "y*z",
+          "y^2",
+          "x*y",
+          "x^2",
+          "x^2*y"
+        ],
+        "false_neg": [],
+        "max_rel_err": 8.578115406460075,
+        "terms": {
+          "y": 7.5781,
+          "x": -2.3042,
+          "x*z": -0.3446,
+          "z": 0.0727,
+          "y*z": -0.0448,
+          "y^2": -0.0211,
+          "x^2": 0.0175,
+          "x*y": -0.0068,
+          "x^2*y": 0.0049,
+          "z^2": 0.0028
+        }
+      },
+      {
+        "eq": "zdot",
+        "n_active": 10,
+        "false_pos": [
+          "z^2",
+          "y",
+          "y*z",
+          "y^2",
+          "x",
+          "x*z",
+          "x^2",
+          "x^2*y"
+        ],
+        "false_neg": [],
+        "max_rel_err": 0.808576956663881,
+        "terms": {
+          "z": -2.0307,
+          "x*y": 0.1914,
+          "y": -0.1749,
+          "x^2": 0.1255,
+          "y^2": 0.0751,
+          "x": -0.068,
+          "z^2": -0.0424,
+          "y*z": -0.005,
+          "x^2*y": 0.0017,
+          "x*z": -0.0011
+        }
+      }
+    ],
+    "affine_r2_median": [
+      0.9537773295202515,
+      0.7929080662297874,
+      0.520513323019447
+    ],
+    "affine_r2_worst": [
+      0.5895764241813128,
+      0.15295400815168647,
+      0.001285543529201405
+    ]
+  }
+}

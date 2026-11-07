@@ -1,0 +1,68 @@
+{
+  "system": "ikeda",
+  "architecture": "[2,4,4] KANLinear enc/dec + stable propagator expm(K - L^T L)",
+  "kan_implementation": "KANLinear (kan.py), NOT pykan",
+  "seed": 0,
+  "train_epochs": 400,
+  "train_lr": 0.001,
+  "n_traj": 200,
+  "n_steps": 2000,
+  "burn_in": 500,
+  "data_seed_train": 42,
+  "data_seed_analysis": 0,
+  "n_analysis_pts": 10000,
+  "paper_alpha": 0.001,
+  "paper_degree": 3,
+  "h_degree": 3,
+  "sparsity_threshold": 0.0001,
+  "alpha_sweep": [
+    1e-06,
+    1e-05,
+    5e-05,
+    0.0001,
+    0.0005,
+    0.001,
+    0.005,
+    0.01
+  ],
+  "degree_sweep": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "basis_sweep": [
+    "poly",
+    "radial_trig",
+    "rbf"
+  ],
+  "tau_sweep": [
+    0.0,
+    0.01,
+    0.03,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.5
+  ],
+  "rbf_per_dim": 6,
+  "retrain_epochs": 100,
+  "retrain_lr": 0.0005,
+  "lorenz_tau_grid": [
+    0.0,
+    0.01,
+    0.03,
+    0.05
+  ],
+  "tau_score": "PyKAN edge attribution B_ij (kan_attribution.py), not the unnormalized KANLinear spline-weight magnitude",
+  "target_atoms": [
+    "x",
+    "x^2",
+    "xy",
+    "y",
+    "y^2"
+  ],
+  "base_one_step_mse": 0.0009817786101044984
+}

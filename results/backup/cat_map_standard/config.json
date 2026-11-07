@@ -1,0 +1,28 @@
+{
+  "system": "arnold_cat_map",
+  "map_matrix": [
+    [
+      2,
+      1
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "lyapunov_exponent": 0.9624236501192069,
+  "lyapunov_time_steps": 1.0390434606175136,
+  "mid_size": 24,
+  "latent_dim": 1024,
+  "grid_size": 5,
+  "spline_order": 3,
+  "epochs": 200,
+  "lr": 0.001,
+  "batch_size": 2048,
+  "n_traj": 200,
+  "n_steps": 500,
+  "recon_weight": 0.5,
+  "propagator": "StablePropagator (M = expm(K - L^T L), |lambda| <= 1)",
+  "encoder_input": "torus embedding (cos(2pi*x), sin(2pi*x), cos(2pi*y), sin(2pi*y))",
+  "decoder_output": "atan2 recovery to [0,1)^2"
+}

@@ -1,0 +1,225 @@
+======================================================================
+  Ikeda Map: Minimal Architecture [2, 4, 4]
+  Device: cuda
+  Seeds: [0, 1, 2, 3, 4]
+======================================================================
+  Data: (200, 2000, 2)
+  x: [-0.354, 2.972]
+  y: [-2.208, 4.146]
+
+============================================================
+  SEED 0
+============================================================
+  Model [2,4,4]: 496 params
+  Ep   1 | train 1.51017 | val 0.62750 | |lam| [0.9303, 0.9664]
+  Ep  50 | train 0.00652 | val 0.00554 | |lam| [0.9363, 0.9998]
+  Ep 100 | train 0.00449 | val 0.00335 | |lam| [0.9258, 0.9999]
+  Ep 150 | train 0.00393 | val 0.00281 | |lam| [0.9185, 0.9997]
+  Ep 200 | train 0.00389 | val 0.00249 | |lam| [0.9108, 0.9997]
+  Ep 250 | train 0.00336 | val 0.00224 | |lam| [0.9041, 0.9997]
+  Ep 300 | train 0.00317 | val 0.00202 | |lam| [0.9000, 0.9997]
+  Ep 350 | train 0.00308 | val 0.00194 | |lam| [0.8982, 0.9997]
+  Ep 400 | train 0.00306 | val 0.00192 | |lam| [0.8978, 0.9997]
+
+  Pruning (threshold=0.03)...
+    Pruned encoder.kan1: 0/8 edges
+    Pruned encoder.kan2: 0/16 edges
+    Pruned decoder.kan1: 0/16 edges
+    Pruned decoder.kan2: 0/8 edges
+  Total pruned: 0
+    Retrain ep   1 | train 0.00369 | val 0.00209
+    Retrain ep  25 | train 0.00302 | val 0.00187
+    Retrain ep  50 | train 0.00296 | val 0.00181
+    Retrain ep  75 | train 0.00290 | val 0.00177
+    Retrain ep 100 | train 0.00289 | val 0.00176
+
+  Horizon: 5.6 [2, 10]
+  |lam|: [0.8958, 0.9997]
+
+  Running analysis...
+
+  Channel analysis:
+    u[0]: x2=-0.7733 y2=-0.6830 ratio=0.883 R2=0.9597 [x(+1.111), x^2(-0.773), y^2(-0.683)]
+    u[1]: x2=-0.1935 y2=-0.2226 ratio=0.869 R2=0.9987 [y(-0.477), x(-0.283), y^2(-0.223)]
+    u[2]: x2=-0.0775 y2=-0.0534 ratio=0.690 R2=0.9985 [y(+1.240), x^2(-0.078), y^2(-0.053)]
+    u[3]: x2=-0.1083 y2=+0.1212 ratio=0.894 R2=0.9984 [y(+0.892), y^2(+0.121), x(-0.115)]
+
+  Gradient identity (channel 3):
+    h(g) = -0.652*cos(t(g)) + 0.135*sin(t(g)) + -0.359
+    Trig fit R^2 = 0.9377
+
+============================================================
+  SEED 1
+============================================================
+  Model [2,4,4]: 496 params
+  Ep   1 | train 1.47645 | val 0.60270 | |lam| [0.9954, 0.9991]
+  Ep  50 | train 0.00649 | val 0.00522 | |lam| [0.9563, 0.9997]
+  Ep 100 | train 0.00378 | val 0.00255 | |lam| [0.9474, 0.9995]
+  Ep 150 | train 0.00313 | val 0.00190 | |lam| [0.9671, 0.9992]
+  Ep 200 | train 0.00284 | val 0.00168 | |lam| [0.9751, 0.9988]
+  Ep 250 | train 0.00265 | val 0.00145 | |lam| [0.9789, 0.9984]
+  Ep 300 | train 0.00252 | val 0.00134 | |lam| [0.9815, 0.9984]
+  Ep 350 | train 0.00246 | val 0.00129 | |lam| [0.9806, 0.9988]
+  Ep 400 | train 0.00244 | val 0.00128 | |lam| [0.9800, 0.9989]
+
+  Pruning (threshold=0.03)...
+    Pruned encoder.kan1: 0/8 edges
+    Pruned encoder.kan2: 0/16 edges
+    Pruned decoder.kan1: 2/16 edges
+    Pruned decoder.kan2: 0/8 edges
+  Total pruned: 2
+    Retrain ep   1 | train 0.00329 | val 0.00133
+    Retrain ep  25 | train 0.00241 | val 0.00128
+    Retrain ep  50 | train 0.00235 | val 0.00120
+    Retrain ep  75 | train 0.00231 | val 0.00117
+    Retrain ep 100 | train 0.00230 | val 0.00116
+
+  Horizon: 6.4 [3, 18]
+  |lam|: [0.9789, 0.9993]
+
+  Running analysis...
+
+  Channel analysis:
+    u[0]: x2=+0.1141 y2=+0.2326 ratio=0.490 R2=0.9925 [y(+0.458), x(+0.357), y^2(+0.233)]
+    u[1]: x2=-0.0081 y2=-0.0364 ratio=0.224 R2=0.9999 [y(+0.322), x(-0.061), y^2(-0.036)]
+    u[2]: x2=-0.7123 y2=-0.7855 ratio=0.907 R2=0.9776 [x(-0.991), y^2(-0.786), x^2(-0.712)]
+    u[3]: x2=-0.0370 y2=-0.1373 ratio=0.269 R2=0.9932 [y(-0.226), y^2(-0.137), x(-0.093)]
+
+  Gradient identity (channel 2):
+    h(g) = -1.302*cos(t(g)) + 0.593*sin(t(g)) + -2.232
+    Trig fit R^2 = 0.9598
+
+============================================================
+  SEED 2
+============================================================
+  Model [2,4,4]: 496 params
+  Ep   1 | train 1.48073 | val 0.62611 | |lam| [0.9028, 0.9973]
+  Ep  50 | train 0.00964 | val 0.00862 | |lam| [0.5296, 0.9979]
+  Ep 100 | train 0.00561 | val 0.00460 | |lam| [0.6233, 0.9975]
+  Ep 150 | train 0.00491 | val 0.00381 | |lam| [0.6328, 0.9981]
+  Ep 200 | train 0.00455 | val 0.00349 | |lam| [0.6358, 0.9982]
+  Ep 250 | train 0.00432 | val 0.00326 | |lam| [0.6401, 0.9981]
+  Ep 300 | train 0.00417 | val 0.00311 | |lam| [0.6448, 0.9980]
+  Ep 350 | train 0.00410 | val 0.00304 | |lam| [0.6475, 0.9979]
+  Ep 400 | train 0.00408 | val 0.00302 | |lam| [0.6480, 0.9978]
+
+  Pruning (threshold=0.03)...
+    Pruned encoder.kan1: 0/8 edges
+    Pruned encoder.kan2: 0/16 edges
+    Pruned decoder.kan1: 0/16 edges
+    Pruned decoder.kan2: 0/8 edges
+  Total pruned: 0
+    Retrain ep   1 | train 0.00429 | val 0.00303
+    Retrain ep  25 | train 0.00403 | val 0.00298
+    Retrain ep  50 | train 0.00395 | val 0.00292
+    Retrain ep  75 | train 0.00390 | val 0.00284
+    Retrain ep 100 | train 0.00388 | val 0.00283
+
+  Horizon: 4.1 [2, 9]
+  |lam|: [0.6563, 0.9976]
+
+  Running analysis...
+
+  Channel analysis:
+    u[0]: x2=-0.0151 y2=-0.1266 ratio=0.119 R2=0.9888 [x(+0.531), y^2(-0.127), y(-0.072)]
+    u[1]: x2=-0.4348 y2=-0.3070 ratio=0.706 R2=0.9954 [x(+0.987), x^2(-0.435), y^2(-0.307)]
+    u[2]: x2=-0.0241 y2=-0.3016 ratio=0.080 R2=0.9812 [x(+0.525), y^2(-0.302), y(+0.172)]
+    u[3]: x2=+0.0000 y2=-0.1352 ratio=0.000 R2=0.9969 [y^2(-0.135), y(-0.097), x(+0.047)]
+
+  Gradient identity (channel 1):
+    h(g) = -0.958*cos(t(g)) + -0.323*sin(t(g)) + -1.204
+    Trig fit R^2 = 0.8237
+
+============================================================
+  SEED 3
+============================================================
+  Model [2,4,4]: 496 params
+  Ep   1 | train 1.30471 | val 0.62425 | |lam| [0.9814, 0.9828]
+  Ep  50 | train 0.00662 | val 0.00557 | |lam| [0.6371, 1.0000]
+  Ep 100 | train 0.00459 | val 0.00358 | |lam| [0.7237, 0.9997]
+  Ep 150 | train 0.00372 | val 0.00270 | |lam| [0.7540, 0.9999]
+  Ep 200 | train 0.00277 | val 0.00180 | |lam| [0.7702, 0.9999]
+  Ep 250 | train 0.00244 | val 0.00149 | |lam| [0.7781, 1.0000]
+  Ep 300 | train 0.00224 | val 0.00130 | |lam| [0.7823, 1.0000]
+  Ep 350 | train 0.00214 | val 0.00119 | |lam| [0.7845, 1.0000]
+  Ep 400 | train 0.00212 | val 0.00117 | |lam| [0.7851, 1.0000]
+
+  Pruning (threshold=0.03)...
+    Pruned encoder.kan1: 0/8 edges
+    Pruned encoder.kan2: 0/16 edges
+    Pruned decoder.kan1: 0/16 edges
+    Pruned decoder.kan2: 0/8 edges
+  Total pruned: 0
+    Retrain ep   1 | train 0.00268 | val 0.00120
+    Retrain ep  25 | train 0.00205 | val 0.00108
+    Retrain ep  50 | train 0.00199 | val 0.00103
+    Retrain ep  75 | train 0.00195 | val 0.00100
+    Retrain ep 100 | train 0.00194 | val 0.00099
+
+  Horizon: 6.1 [2, 10]
+  |lam|: [0.7929, 0.9999]
+
+  Running analysis...
+
+  Channel analysis:
+    u[0]: x2=-0.1707 y2=-0.1151 ratio=0.674 R2=0.9995 [y(-0.360), x(-0.319), x^2(-0.171)]
+    u[1]: x2=-0.6980 y2=-0.7810 ratio=0.894 R2=0.9959 [x(-0.943), y^2(-0.781), x^2(-0.698)]
+    u[2]: x2=-0.1059 y2=-0.2360 ratio=0.449 R2=0.9989 [y(-0.901), x(-0.441), y^2(-0.236)]
+    u[3]: x2=+0.0759 y2=+0.0581 ratio=0.766 R2=0.9989 [x(+0.497), y(+0.295), x^2(+0.076)]
+
+  Gradient identity (channel 3):
+    h(g) = -0.014*cos(t(g)) + -0.170*sin(t(g)) + 0.613
+    Trig fit R^2 = 0.5053
+
+============================================================
+  SEED 4
+============================================================
+  Model [2,4,4]: 496 params
+  Ep   1 | train 1.37967 | val 0.62125 | |lam| [0.9866, 0.9962]
+  Ep  50 | train 0.00487 | val 0.00393 | |lam| [0.9148, 1.0000]
+  Ep 100 | train 0.00307 | val 0.00208 | |lam| [0.9196, 0.9999]
+  Ep 150 | train 0.00384 | val 0.00348 | |lam| [0.9221, 0.9999]
+  Ep 200 | train 0.00252 | val 0.00147 | |lam| [0.9242, 0.9999]
+  Ep 250 | train 0.00239 | val 0.00135 | |lam| [0.9260, 0.9999]
+  Ep 300 | train 0.00230 | val 0.00128 | |lam| [0.9270, 0.9999]
+  Ep 350 | train 0.00226 | val 0.00123 | |lam| [0.9276, 0.9999]
+  Ep 400 | train 0.00225 | val 0.00122 | |lam| [0.9278, 0.9999]
+
+  Pruning (threshold=0.03)...
+    Pruned encoder.kan1: 0/8 edges
+    Pruned encoder.kan2: 0/16 edges
+    Pruned decoder.kan1: 2/16 edges
+    Pruned decoder.kan2: 0/8 edges
+  Total pruned: 2
+    Retrain ep   1 | train 0.00302 | val 0.00144
+    Retrain ep  25 | train 0.00225 | val 0.00120
+    Retrain ep  50 | train 0.00220 | val 0.00116
+    Retrain ep  75 | train 0.00217 | val 0.00113
+    Retrain ep 100 | train 0.00216 | val 0.00113
+
+  Horizon: 6.2 [2, 12]
+  |lam|: [0.9293, 0.9999]
+
+  Running analysis...
+
+  Channel analysis:
+    u[0]: x2=+0.1901 y2=+0.1671 ratio=0.879 R2=0.9940 [x^2(+0.190), y^2(+0.167), x(+0.147)]
+    u[1]: x2=-0.0000 y2=-0.2557 ratio=0.000 R2=0.9995 [y(-1.397), x(-0.490), y^2(-0.256)]
+    u[2]: x2=-0.6782 y2=-0.7994 ratio=0.848 R2=0.9954 [y^2(-0.799), x^2(-0.678), x(-0.417)]
+    u[3]: x2=+0.1518 y2=+0.2232 ratio=0.680 R2=0.9987 [y(+0.372), x(+0.360), y^2(+0.223)]
+
+  Gradient identity (channel 2):
+    h(g) = -1.461*cos(t(g)) + 0.209*sin(t(g)) + -1.984
+    Trig fit R^2 = 0.8961
+
+======================================================================
+  SUMMARY
+======================================================================
+  seed_0: horizon=5.6 pruned=0 trig_R2=0.938 h=-0.65cos+0.13sin+-0.36
+  seed_1: horizon=6.4 pruned=2 trig_R2=0.960 h=-1.30cos+0.59sin+-2.23
+  seed_2: horizon=4.1 pruned=0 trig_R2=0.824 h=-0.96cos+-0.32sin+-1.20
+  seed_3: horizon=6.1 pruned=0 trig_R2=0.505 h=-0.01cos+-0.17sin+0.61
+  seed_4: horizon=6.2 pruned=2 trig_R2=0.896 h=-1.46cos+0.21sin+-1.98
+
+  Saved results/ikeda_minimal/results.json
+  Done.

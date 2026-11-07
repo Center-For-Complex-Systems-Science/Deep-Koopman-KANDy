@@ -1,0 +1,148 @@
+======================================================================
+Ikeda PyKAN Sparsity + Pruning Sweep
+  Architecture: [2, 6, 8]
+  lamb values: [0.0, 0.001, 0.01, 0.05]
+  prune thresholds: [0.01, 0.03, 0.05, 0.1]
+  Device: cpu
+======================================================================
+
+======================================================================
+LAMB = 0.0
+======================================================================
+checkpoint directory created: ./model
+saving model version 0.0
+checkpoint directory created: ./model
+saving model version 0.0
+    Model params: 2,336
+    Grids initialized from 3000 samples
+    Ep   1 | train 1.05028 | val 0.34051 | |λ| [0.911, 0.993]
+    Ep  50 | train 0.00046 | val 0.16072 | |λ| [0.737, 0.998]
+    Ep 100 | train 0.00016 | val 0.28758 | |λ| [0.699, 0.999]
+    Ep 150 | train 0.00013 | val 0.63982 | |λ| [0.704, 0.999]
+  Pre-prune val loss: 0.63982
+  Pre-prune horizon: 0.4 steps
+  r² signature: 1/6 nodes, best R²_radial=0.9534
+    u[3]: x²=+0.0682, y²=+0.1193, ratio=0.572, #terms=7
+  tau=0.01: 0 edges below, |A_k|=[6, 6, 6, 6, 6, 6, 6, 6], mode=6
+  tau=0.03: 16 edges below, |A_k|=[4, 2, 3, 6, 4, 4, 3, 6], mode=4
+  tau=0.05: 34 edges below, |A_k|=[2, 0, 2, 4, 0, 2, 2, 3], mode=2
+  tau=0.10: 47 edges below, |A_k|=[0, 0, 0, 2, 0, 0, 0, 1], mode=0
+
+======================================================================
+LAMB = 0.001
+======================================================================
+checkpoint directory created: ./model
+saving model version 0.0
+checkpoint directory created: ./model
+saving model version 0.0
+    Model params: 2,336
+    Grids initialized from 3000 samples
+    Ep   1 | train 1.06260 | val 0.34487 | |λ| [0.906, 0.989]
+    Ep  50 | train 0.00729 | val 0.12172 | |λ| [0.414, 0.997]
+    Ep 100 | train 0.00626 | val 0.23573 | |λ| [0.367, 0.996]
+    Ep 150 | train 0.00594 | val 0.15743 | |λ| [0.367, 0.995]
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:813: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  self.subnode_actscale.append(torch.std(x, dim=0).detach())
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:823: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  input_range = torch.std(preacts, dim=0) + 0.1
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:824: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  output_range_spline = torch.std(postacts_numerical, dim=0) # for training, only penalize the spline part
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:825: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  output_range = torch.std(postacts, dim=0) # for visualization, include the contribution from both spline + symbolic
+  Pre-prune val loss: 0.15743
+  Pre-prune horizon: 0.9 steps
+  r² signature: 1/6 nodes, best R²_radial=0.9692
+    u[5]: x²=-0.1277, y²=-0.1240, ratio=0.971, #terms=6
+  tau=0.01: 20 edges below, |A_k|=[4, 2, 5, 4, 1, 4, 3, 5], mode=4
+  tau=0.03: 41 edges below, |A_k|=[2, 0, 0, 2, 0, 1, 1, 2], mode=0
+  tau=0.05: 48 edges below, |A_k|=[0, 0, 0, 2, 0, 1, 0, 0], mode=0
+  tau=0.10: 53 edges below, |A_k|=[0, 0, 0, 0, 0, 0, 0, 0], mode=0
+
+======================================================================
+LAMB = 0.01
+======================================================================
+checkpoint directory created: ./model
+saving model version 0.0
+checkpoint directory created: ./model
+saving model version 0.0
+    Model params: 2,336
+    Grids initialized from 3000 samples
+    Ep   1 | train 1.23599 | val 0.35403 | |λ| [0.965, 0.994]
+    Ep  50 | train 0.03367 | val 1.05293 | |λ| [0.691, 0.992]
+    Ep 100 | train 0.02477 | val 872.62255 | |λ| [0.740, 0.994]
+    Ep 150 | train 0.05547 | val 49.21864 | |λ| [0.738, 0.993]
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:813: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  self.subnode_actscale.append(torch.std(x, dim=0).detach())
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:823: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  input_range = torch.std(preacts, dim=0) + 0.1
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:824: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  output_range_spline = torch.std(postacts_numerical, dim=0) # for training, only penalize the spline part
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:825: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  output_range = torch.std(postacts, dim=0) # for visualization, include the contribution from both spline + symbolic
+  Pre-prune val loss: 49.21864
+  Pre-prune horizon: 0.0 steps
+  r² signature: 0/6 nodes, best R²_radial=0.9976
+  tau=0.01: 27 edges below, |A_k|=[3, 1, 4, 4, 2, 3, 3, 3], mode=3
+  tau=0.03: 43 edges below, |A_k|=[1, 0, 1, 4, 0, 1, 0, 0], mode=0
+  tau=0.05: 49 edges below, |A_k|=[0, 0, 0, 1, 0, 0, 0, 0], mode=0
+  tau=0.10: 55 edges below, |A_k|=[0, 0, 0, 0, 0, 0, 0, 0], mode=0
+
+======================================================================
+LAMB = 0.05
+======================================================================
+checkpoint directory created: ./model
+saving model version 0.0
+checkpoint directory created: ./model
+saving model version 0.0
+    Model params: 2,336
+    Grids initialized from 3000 samples
+    Ep   1 | train 1.95451 | val 0.38247 | |λ| [0.889, 0.993]
+    Ep  50 | train 0.09989 | val 2.06344 | |λ| [0.871, 0.983]
+    Ep 100 | train 0.07212 | val 1.58219 | |λ| [0.792, 0.990]
+    Ep 150 | train 0.06361 | val 3.46003 | |λ| [0.757, 0.986]
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:813: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  self.subnode_actscale.append(torch.std(x, dim=0).detach())
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:823: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  input_range = torch.std(preacts, dim=0) + 0.1
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:824: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  output_range_spline = torch.std(postacts_numerical, dim=0) # for training, only penalize the spline part
+/home/kslote/Desktop/kandy/codebase/deep-koopman/venv/lib/python3.11/site-packages/kan/MultKAN.py:825: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1823.)
+  output_range = torch.std(postacts, dim=0) # for visualization, include the contribution from both spline + symbolic
+  Pre-prune val loss: 3.46003
+  Pre-prune horizon: 0.1 steps
+  r² signature: 0/6 nodes, best R²_radial=0.9887
+  tau=0.01: 31 edges below, |A_k|=[3, 1, 3, 3, 2, 2, 3, 3], mode=3
+  tau=0.03: 51 edges below, |A_k|=[0, 0, 0, 0, 0, 0, 0, 0], mode=0
+  tau=0.05: 52 edges below, |A_k|=[0, 0, 0, 0, 0, 0, 0, 0], mode=0
+  tau=0.10: 52 edges below, |A_k|=[0, 0, 0, 0, 0, 0, 0, 0], mode=0
+
+
+======================================================================
+SWEEP SUMMARY
+======================================================================
+  lamb |   tau | val_loss | horizon | below | |A_k| | r² sig | best R²
+------ | ----- | -------- | ------- | ----- | ----- | ------ | -------
+ 0.000 |  0.01 |  0.63982 |     0.4 |     0 |     6 |      1 |  0.9534
+ 0.000 |  0.03 |  0.63982 |     0.4 |    16 |     4 |      1 |  0.9534
+ 0.000 |  0.05 |  0.63982 |     0.4 |    34 |     2 |      1 |  0.9534
+ 0.000 |  0.10 |  0.63982 |     0.4 |    47 |     0 |      1 |  0.9534
+ 0.001 |  0.01 |  0.15743 |     0.9 |    20 |     4 |      1 |  0.9692
+ 0.001 |  0.03 |  0.15743 |     0.9 |    41 |     0 |      1 |  0.9692
+ 0.001 |  0.05 |  0.15743 |     0.9 |    48 |     0 |      1 |  0.9692
+ 0.001 |  0.10 |  0.15743 |     0.9 |    53 |     0 |      1 |  0.9692
+ 0.010 |  0.01 | 49.21864 |     0.0 |    27 |     3 |      0 |  0.9976
+ 0.010 |  0.03 | 49.21864 |     0.0 |    43 |     0 |      0 |  0.9976
+ 0.010 |  0.05 | 49.21864 |     0.0 |    49 |     0 |      0 |  0.9976
+ 0.010 |  0.10 | 49.21864 |     0.0 |    55 |     0 |      0 |  0.9976
+ 0.050 |  0.01 |  3.46003 |     0.1 |    31 |     3 |      0 |  0.9887
+ 0.050 |  0.03 |  3.46003 |     0.1 |    51 |     0 |      0 |  0.9887
+ 0.050 |  0.05 |  3.46003 |     0.1 |    52 |     0 |      0 |  0.9887
+ 0.050 |  0.10 |  3.46003 |     0.1 |    52 |     0 |      0 |  0.9887
+
+Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda_pykan/sweep_heatmap.png
+Saved /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda_pykan/sweep_results.json
+
+Best config: lamb=0.001, tau=0.01
+  Horizon: 0.9, r² sig: 1/6, |A_k| mode: 4, val_loss: 0.15743
+
+All results in /home/kslote/Desktop/kandy/codebase/deep-koopman/results/ikeda_pykan/

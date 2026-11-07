@@ -1,0 +1,276 @@
+Loaded standard_map_stable_32_128.pt: [4,32,128], kappa=0.97
+  |lambda| in [0.0113, 0.9826], #>0.99 = 0
+  sigma   in [0.0089, 0.9999], #>0.99 = 47, #>0.95 = 85
+Precomputing encoder gradients (2 charts x 128 latent dims)...
+  7.9s
+
+==============================================================================
+REPRODUCTION CHECK  (alpha=1e-05, degree 2, poly-in-trig)
+==============================================================================
+  P = 15 atoms: ['1', 'sy', 'sy^2', 'cy', 'cysy', 'cy^2', 'sx', 'sxsy', 'sxcy', 'sx^2', 'cx', 'cxsy', 'cxcy', 'cxsx', 'cx^2']
+  R2(h o g): median 0.977, p10 0.871, min -0.619, 109/128 dims > 0.9
+  union(dominant) vs Eq.13: recall 1.000, precision 0.714, jaccard 0.714, extra 4
+  extra atoms   : cx^2;cy^2;sx^2;sy^2
+  missing atoms : (none)
+  union(dominant) vs COMPLETE |m|+|n|<=2 family (14 monomials): recall 1.000, precision 1.000, jaccard 1.000, extra 0
+  R2_fourier2 (g projected on the |m|+|n|<=2 span): median 1.000
+    z[0] R2g=0.979 R2hg=0.979 n=12 sxcy(-0.0065);sxsy(-0.0047);cxsy(+0.0043);cysy(-0.0034);sx(-0.0031);cxsx(+0.0029)
+    z[1] R2g=0.985 R2hg=0.985 n=15 cxcy(+0.0088);cx(+0.0084);cy(-0.0081);1(-0.0061);sx(+0.0035);cysy(+0.0027)
+    z[2] R2g=0.947 R2hg=0.942 n=13 sxsy(-0.0054);sy^2(-0.0045);1(+0.0040);cxcy(-0.0039);sx(-0.0032);sx^2(-0.0016)
+    z[3] R2g=0.977 R2hg=0.977 n=14 sy(+0.0081);sxsy(-0.0074);sxcy(+0.0073);cysy(+0.0070);cxsy(+0.0059);cy(+0.0031)
+    z[4] R2g=0.951 R2hg=0.834 n=14 cysy(-0.0041);cxsy(-0.0033);cxcy(-0.0028);sy^2(+0.0020);cxsx(-0.0015);sy(+0.0014)
+    z[5] R2g=0.979 R2hg=0.979 n=13 cxsy(-0.0131);sxcy(+0.0116);cysy(+0.0094);sx(+0.0090);cx(-0.0037);sy^2(-0.0025)
+
+  REPRODUCED (recall>=0.9 of Eq.13 and median R2(hog)>0.9): True
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/standard_map_robustness/reproduction_per_dim.csv
+
+==============================================================================
+AXIS A: Lasso lambda  (poly-in-trig, degree 2)
+==============================================================================
+  a=   1e-06 P= 15 R2hg med=0.977 p10=0.871 |#act=14.0 |rec=1.000 prec=0.714 jac=0.714 extra=4 |full2: rec=1.000 prec=1.000 jac=1.000 extra=0 |R2f2 med=1.000 |affine=127 |t=0.8s
+  a=   1e-05 P= 15 R2hg med=0.977 p10=0.871 |#act=14.0 |rec=1.000 prec=0.714 jac=0.714 extra=4 |full2: rec=1.000 prec=1.000 jac=1.000 extra=0 |R2f2 med=1.000 |affine=127 |t=0.7s
+  a=   5e-05 P= 15 R2hg med=0.977 p10=0.870 |#act=13.0 |rec=1.000 prec=0.714 jac=0.714 extra=4 |full2: rec=1.000 prec=1.000 jac=1.000 extra=0 |R2f2 med=1.000 |affine=128 |t=0.9s
+  a=   1e-04 P= 15 R2hg med=0.977 p10=0.869 |#act=13.0 |rec=1.000 prec=0.714 jac=0.714 extra=4 |full2: rec=1.000 prec=1.000 jac=1.000 extra=0 |R2f2 med=1.000 |affine=128 |t=0.8s
+  a=   5e-04 P= 15 R2hg med=0.977 p10=0.869 |#act=13.0 |rec=1.000 prec=0.714 jac=0.714 extra=4 |full2: rec=1.000 prec=1.000 jac=1.000 extra=0 |R2f2 med=1.000 |affine=128 |t=0.7s
+  a=   1e-03 P= 15 R2hg med=0.977 p10=0.865 |#act=13.0 |rec=1.000 prec=0.714 jac=0.714 extra=4 |full2: rec=1.000 prec=1.000 jac=1.000 extra=0 |R2f2 med=1.000 |affine=128 |t=0.7s
+  a=   5e-03 P= 15 R2hg med=0.976 p10=0.874 |#act=13.0 |rec=1.000 prec=0.714 jac=0.714 extra=4 |full2: rec=1.000 prec=1.000 jac=1.000 extra=0 |R2f2 med=1.000 |affine=128 |t=0.7s
+  a=   1e-02 P= 15 R2hg med=0.976 p10=0.876 |#act=13.0 |rec=1.000 prec=0.714 jac=0.714 extra=4 |full2: rec=1.000 prec=1.000 jac=1.000 extra=0 |R2f2 med=1.000 |affine=128 |t=0.7s
+
+==============================================================================
+AXIS A: Lasso lambda  (poly-in-trig, degree 3)
+==============================================================================
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.486e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 4.636e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.550e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.020e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.070e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.623e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.514e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.325e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.711e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.438e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.302e+01, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 4.900e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.328e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.070e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.512e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.703e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.064e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.961e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 9.928e-01, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 6.708e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 4.538e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.105e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.333e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.266e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.949e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.774e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.996e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.836e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.203e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.224e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.467e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 4.685e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 5.509e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 6.911e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.811e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.138e+01, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.769e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.236e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.026e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.121e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 9.794e-01, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 9.072e-01, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 8.407e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.471e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+  a=   1e-06 P= 35 R2hg med=0.997 p10=0.990 |#act=29.0 |rec=1.000 prec=0.294 jac=0.294 extra=24 |full2: rec=1.000 prec=0.412 jac=0.412 extra=20 |R2f2 med=0.981 |affine=128 |t=219.2s
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 7.237e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+  a=   1e-05 P= 35 R2hg med=0.997 p10=0.990 |#act=27.0 |rec=1.000 prec=0.294 jac=0.294 extra=24 |full2: rec=1.000 prec=0.412 jac=0.412 extra=20 |R2f2 med=0.981 |affine=128 |t=62.0s
+  a=   5e-05 P= 35 R2hg med=0.997 p10=0.990 |#act=24.0 |rec=1.000 prec=0.294 jac=0.294 extra=24 |full2: rec=1.000 prec=0.412 jac=0.412 extra=20 |R2f2 med=0.981 |affine=128 |t=20.1s
+  a=   1e-04 P= 35 R2hg med=0.997 p10=0.991 |#act=23.0 |rec=1.000 prec=0.294 jac=0.294 extra=24 |full2: rec=1.000 prec=0.412 jac=0.412 extra=20 |R2f2 med=0.981 |affine=128 |t=15.4s
+  a=   5e-04 P= 35 R2hg med=0.997 p10=0.991 |#act=22.0 |rec=1.000 prec=0.294 jac=0.294 extra=24 |full2: rec=1.000 prec=0.412 jac=0.412 extra=20 |R2f2 med=0.981 |affine=128 |t=5.0s
+  a=   1e-03 P= 35 R2hg med=0.997 p10=0.991 |#act=21.5 |rec=1.000 prec=0.294 jac=0.294 extra=24 |full2: rec=1.000 prec=0.412 jac=0.412 extra=20 |R2f2 med=0.981 |affine=128 |t=3.0s
+  a=   5e-03 P= 35 R2hg med=0.997 p10=0.987 |#act=20.0 |rec=1.000 prec=0.294 jac=0.294 extra=24 |full2: rec=1.000 prec=0.412 jac=0.412 extra=20 |R2f2 med=0.982 |affine=128 |t=1.4s
+  a=   1e-02 P= 35 R2hg med=0.997 p10=0.986 |#act=19.0 |rec=1.000 prec=0.294 jac=0.294 extra=24 |full2: rec=1.000 prec=0.412 jac=0.412 extra=20 |R2f2 med=0.983 |affine=128 |t=1.2s
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/standard_map_robustness/axis_lambda.csv
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:753: ConvergenceWarning: Early stopping the lars path, as the residues are small and the current value of alpha is no longer well controlled. 9 iterations, alpha=6.607e-02, previous alpha=6.567e-02, with an active set of 10 regressors.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:753: ConvergenceWarning: Early stopping the lars path, as the residues are small and the current value of alpha is no longer well controlled. 14 iterations, alpha=2.223e-02, previous alpha=2.103e-02, with an active set of 13 regressors.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:753: ConvergenceWarning: Early stopping the lars path, as the residues are small and the current value of alpha is no longer well controlled. 12 iterations, alpha=2.052e-02, previous alpha=2.051e-02, with an active set of 11 regressors.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:753: ConvergenceWarning: Early stopping the lars path, as the residues are small and the current value of alpha is no longer well controlled. 8 iterations, alpha=2.159e-01, previous alpha=2.111e-01, with an active set of 9 regressors.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 14 iterations, i.e. alpha=5.641e-03, with an active set of 12 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 15 iterations, i.e. alpha=2.821e-03, with an active set of 13 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 11 iterations, i.e. alpha=2.151e-02, with an active set of 11 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 12 iterations, i.e. alpha=1.076e-02, with an active set of 12 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 13 iterations, i.e. alpha=5.378e-03, with an active set of 13 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 11 iterations, i.e. alpha=3.838e-02, with an active set of 11 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 13 iterations, i.e. alpha=1.919e-02, with an active set of 13 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 10 iterations, i.e. alpha=6.031e-02, with an active set of 10 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 11 iterations, i.e. alpha=3.016e-02, with an active set of 11 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 12 iterations, i.e. alpha=1.508e-02, with an active set of 12 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 12 iterations, i.e. alpha=7.531e-03, with an active set of 12 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 6 iterations, i.e. alpha=7.051e-02, with an active set of 6 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 7 iterations, i.e. alpha=6.684e-02, with an active set of 7 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 9 iterations, i.e. alpha=2.564e-02, with an active set of 9 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 9 iterations, i.e. alpha=1.202e-02, with an active set of 9 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 11 iterations, i.e. alpha=6.011e-03, with an active set of 11 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 12 iterations, i.e. alpha=2.172e-03, with an active set of 12 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:753: ConvergenceWarning: Early stopping the lars path, as the residues are small and the current value of alpha is no longer well controlled. 14 iterations, alpha=8.459e-03, previous alpha=8.459e-03, with an active set of 13 regressors.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:753: ConvergenceWarning: Early stopping the lars path, as the residues are small and the current value of alpha is no longer well controlled. 9 iterations, alpha=1.349e-01, previous alpha=1.311e-01, with an active set of 10 regressors.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:753: ConvergenceWarning: Early stopping the lars path, as the residues are small and the current value of alpha is no longer well controlled. 9 iterations, alpha=1.669e-01, previous alpha=1.669e-01, with an active set of 10 regressors.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 2 iterations, i.e. alpha=3.689e-01, with an active set of 2 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 9 iterations, i.e. alpha=1.815e-01, with an active set of 9 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 10 iterations, i.e. alpha=1.070e-01, with an active set of 10 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 12 iterations, i.e. alpha=4.160e-02, with an active set of 12 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 13 iterations, i.e. alpha=1.157e-02, with an active set of 13 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:753: ConvergenceWarning: Early stopping the lars path, as the residues are small and the current value of alpha is no longer well controlled. 11 iterations, alpha=7.203e-02, previous alpha=6.742e-02, with an active set of 12 regressors.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 10 iterations, i.e. alpha=8.578e-03, with an active set of 10 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 11 iterations, i.e. alpha=7.906e-03, with an active set of 11 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 12 iterations, i.e. alpha=3.657e-03, with an active set of 12 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 12 iterations, i.e. alpha=3.577e-03, with an active set of 12 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 11 iterations, i.e. alpha=3.127e-03, with an active set of 11 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 13 iterations, i.e. alpha=1.563e-03, with an active set of 13 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 10 iterations, i.e. alpha=2.225e-02, with an active set of 10 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 11 iterations, i.e. alpha=1.423e-03, with an active set of 11 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 12 iterations, i.e. alpha=7.116e-04, with an active set of 12 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 13 iterations, i.e. alpha=3.379e-05, with an active set of 13 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 11 iterations, i.e. alpha=7.370e-02, with an active set of 11 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 12 iterations, i.e. alpha=3.685e-02, with an active set of 12 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:723: ConvergenceWarning: Regressors in active set degenerate. Dropping a regressor, after 13 iterations, i.e. alpha=1.842e-02, with an active set of 13 regressors, and the smallest cholesky pivot element being 2.220e-16. Reduce max_iter or increase eps parameters.
+  warnings.warn(
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_least_angle.py:753: ConvergenceWarning: Early stopping the lars path, as the residues are small and the current value of alpha is no longer well controlled. 7 iterations, alpha=1.133e-01, previous alpha=1.084e-01, with an active set of 8 regressors.
+  warnings.warn(
+
+  LassoLars cross-check @ a=1e-05, D=2: #act median=13.0 (CD: 14.0), recall=1.000 (CD: 1.000), R2hg median=0.972
+
+==============================================================================
+AXIS B: polynomial degree  (alpha = 1e-05, poly-in-trig)
+==============================================================================
+  D=1 P=  5 R2hg med=0.481 p10=0.153 |#act=5.0 |rec=0.400 prec=1.000 jac=0.400 extra=0 |full2: rec=0.286 prec=1.000 jac=0.286 extra=0 |R2f2 med=1.000 |t=0.2s (0.002/dim)
+  D=2 P= 15 R2hg med=0.977 p10=0.871 |#act=14.0 |rec=1.000 prec=0.714 jac=0.714 extra=4 |full2: rec=1.000 prec=1.000 jac=1.000 extra=0 |R2f2 med=1.000 |t=0.7s (0.005/dim)
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 7.237e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+  D=3 P= 35 R2hg med=0.997 p10=0.990 |#act=27.0 |rec=1.000 prec=0.294 jac=0.294 extra=24 |full2: rec=1.000 prec=0.412 jac=0.412 extra=20 |R2f2 med=0.981 |t=62.2s (0.486/dim)
+/home/kslote/anaconda3/lib/python3.11/site-packages/sklearn/linear_model/_coordinate_descent.py:716: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 3.172e+00, tolerance: 8.000e-01
+  model = cd_fast.enet_coordinate_descent(
+  D=4 P= 70 R2hg med=0.999 p10=0.995 |#act=45.5 |rec=1.000 prec=0.145 jac=0.145 extra=59 |full2: rec=1.000 prec=0.203 jac=0.203 extra=55 |R2f2 med=0.978 |t=64.0s (0.500/dim)
+  D=5 P=126 R2hg med=1.000 p10=0.998 |#act=74.0 |rec=1.000 prec=0.090 jac=0.090 extra=101 |full2: rec=1.000 prec=0.126 jac=0.126 extra=97 |R2f2 med=0.978 |t=10.0s (0.078/dim)
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/standard_map_robustness/axis_degree.csv
+
+  candidate-count cost:  P -> extra atoms -> precision (vs the complete |m|+|n|<=2 family)
+    D=1  P=  5  extra=0  prec=1.000  rec=0.286  #act=5.0  R2f2=1.000
+    D=2  P= 15  extra=0  prec=1.000  rec=1.000  #act=14.0  R2f2=1.000
+    D=3  P= 35  extra=20  prec=0.412  rec=1.000  #act=27.0  R2f2=0.981
+    D=4  P= 70  extra=55  prec=0.203  rec=1.000  #act=45.5  R2f2=0.978
+    D=5  P=126  extra=97  prec=0.126  rec=1.000  #act=74.0  R2f2=0.978
+    first degree where extra-atom count rises with P: 3
+
+==============================================================================
+AXIS C: readout basis  (alpha = 1e-05)
+==============================================================================
+  poly_trig  P= 15 chart=trig   R2hg med=0.977 p10=0.871 |#act=14.0 |rec=1.000 prec=0.714 jac=0.714 extra=4 |full2: rec=1.000 prec=1.000 |R2f2 med=1.000 p90=1.000 |affine=127 |t=0.7s
+      extra   : cx^2;cy^2;sx^2;sy^2
+  fourier    P= 25 chart=angle  R2hg med=0.997 p10=0.986 |#act=22.0 |rec=1.000 prec=0.500 jac=0.500 extra=12 |full2: rec=1.000 prec=0.500 |R2f2 med=0.981 p90=0.994 |affine=125 |t=0.7s
+      extra   : cos(0,3);cos(1,-2);cos(1,2);cos(2,-1);cos(2,1);cos(3,0);sin(0,3);sin(1,-2);sin(1,2);sin(2,-1);sin(2,1);sin(3,0)
+  rbf        P= 65 chart=angle  R2hg med=0.999 p10=0.991 |#act=63.0 |rec=-- prec=-- jac=-- extra=nan |full2: rec=-- prec=-- |R2f2 med=0.979 p90=0.993 |affine=126 |t=84.1s
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/standard_map_robustness/axis_basis.csv
+
+==============================================================================
+AXIS D: prune tau
+==============================================================================
+  Prune-tau axis NOT run for the standard map.
+  The paper's tau protocol (appendix Eq.
+  edge-importance) is a PyKAN-style layerwise attribution on activation variance, B_ij = mean_k r_kij, applied to a PyKAN encoder.
+  The committed standard-map encoder (results/standard_map/standard_map_stable_32_128.pt) is KANLinear (kan.py), which exposes no PyKAN activation graph and therefore no attribution scores; the KANLinear surrogate used for Ikeda (spline_weight magnitude) is a different score and would not be the same tau axis.
+  Retraining a PyKAN [4,32,128] standard-map encoder purely to add this axis was judged out of scope: the tau axis is already covered on two systems (Lorenz tab:prune-sweep and Ikeda, results/ikeda_robustness/axis_tau.csv).
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/standard_map_robustness/all_settings.csv
+  wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/standard_map_robustness/per_dim_detail.csv
+
+Wrote /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/standard_map_robustness/summary.json
+Done.

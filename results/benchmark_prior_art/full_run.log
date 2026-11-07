@@ -1,0 +1,188 @@
+
+=== lorenz | seed 0 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=4.871e-05 VPT0.5=119st VPT1.0=infst (-) params=3296 wall=1739s
+  [   nehma] 1step_nmse=3.062e-05 VPT0.5=25st VPT1.0=39st (0.35tau) params=3296 wall=415s
+  [   coote] 1step_nmse=1.603e-03 VPT0.5=18st VPT1.0=33st (0.30tau) params=19472 wall=150s
+  [ edmd_dl] 1step_nmse=4.429e-02 VPT0.5=13st VPT1.0=infst (-) params=4741 wall=22s
+
+=== lorenz | seed 1 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=2.955e-05 VPT0.5=127st VPT1.0=infst (-) params=3296 wall=447s
+  [   nehma] 1step_nmse=9.160e-06 VPT0.5=24st VPT1.0=230st (2.08tau) params=3296 wall=430s
+  [   coote] 1step_nmse=1.285e-03 VPT0.5=19st VPT1.0=42st (0.38tau) params=19472 wall=122s
+  [ edmd_dl] 1step_nmse=4.409e-02 VPT0.5=13st VPT1.0=250st (2.26tau) params=4741 wall=22s
+
+=== lorenz | seed 2 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=3.306e-05 VPT0.5=177st VPT1.0=infst (-) params=3296 wall=439s
+  [   nehma] 1step_nmse=2.958e-05 VPT0.5=27st VPT1.0=183st (1.66tau) params=3296 wall=427s
+  [   coote] 1step_nmse=1.224e-03 VPT0.5=18st VPT1.0=32st (0.29tau) params=19472 wall=150s
+  [ edmd_dl] 1step_nmse=3.587e-03 VPT0.5=15st VPT1.0=32st (0.29tau) params=4741 wall=22s
+
+=== cat_map | seed 0 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=5.732e-04 VPT0.5=5st VPT1.0=6st (5.77tau) params=9536 wall=171s
+  [   nehma] 1step_nmse=1.828e-04 VPT0.5=2st VPT1.0=infst (-) params=9536 wall=157s
+  [   coote] 1step_nmse=1.073e-01 VPT0.5=2st VPT1.0=infst (-) params=29976 wall=27s
+  [ edmd_dl] 1step_nmse=8.308e-01 VPT0.5=1st VPT1.0=infst (-) params=5000 wall=7s
+
+=== cat_map | seed 1 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=1.846e-03 VPT0.5=4st VPT1.0=5st (4.81tau) params=9536 wall=169s
+  [   nehma] 1step_nmse=7.367e-04 VPT0.5=2st VPT1.0=2st (1.92tau) params=9536 wall=159s
+  [   coote] 1step_nmse=6.577e-02 VPT0.5=2st VPT1.0=infst (-) params=29976 wall=28s
+  [ edmd_dl] 1step_nmse=1.021e+00 VPT0.5=1st VPT1.0=infst (-) params=5000 wall=8s
+
+=== cat_map | seed 2 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=1.144e-03 VPT0.5=5st VPT1.0=6st (5.77tau) params=9536 wall=172s
+  [   nehma] 1step_nmse=1.509e-04 VPT0.5=2st VPT1.0=3st (2.89tau) params=9536 wall=161s
+  [   coote] 1step_nmse=7.373e-02 VPT0.5=2st VPT1.0=infst (-) params=29976 wall=27s
+  [ edmd_dl] 1step_nmse=1.403e-03 VPT0.5=4st VPT1.0=4st (3.85tau) params=5000 wall=7s
+
+=== standard_map | seed 0 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=1.490e-03 VPT0.5=7st VPT1.0=11st (-) params=12544 wall=346s
+  [   nehma] 1step_nmse=5.559e-05 VPT0.5=3st VPT1.0=55st (-) params=12544 wall=327s
+  [   coote] 1step_nmse=5.739e-02 VPT0.5=3st VPT1.0=infst (-) params=39968 wall=84s
+  [ edmd_dl] 1step_nmse=1.176e-04 VPT0.5=8st VPT1.0=9st (-) params=5000 wall=14s
+
+=== standard_map | seed 1 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=2.141e-04 VPT0.5=13st VPT1.0=15st (-) params=12544 wall=353s
+  [   nehma] 1step_nmse=7.006e-05 VPT0.5=3st VPT1.0=infst (-) params=12544 wall=329s
+  [   coote] 1step_nmse=2.641e-02 VPT0.5=3st VPT1.0=infst (-) params=39968 wall=84s
+/home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/experiments/benchmark_prior_art.py:207: RuntimeWarning: overflow encountered in divide
+  curves.append((np.abs(pred - true) / std_ref).mean(axis=1))
+/home/kslote/anaconda3/lib/python3.11/site-packages/numpy/core/_methods.py:118: RuntimeWarning: overflow encountered in reduce
+  ret = umr_sum(arr, axis, dtype, out, keepdims, where=where)
+  [ edmd_dl] 1step_nmse=2.654e-03 VPT0.5=6st VPT1.0=8st (-) params=5000 wall=14s
+
+=== standard_map | seed 2 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=1.503e-04 VPT0.5=8st VPT1.0=13st (-) params=12544 wall=349s
+  [   nehma] 1step_nmse=1.645e-04 VPT0.5=3st VPT1.0=infst (-) params=12544 wall=323s
+  [   coote] 1step_nmse=3.321e-02 VPT0.5=4st VPT1.0=infst (-) params=39968 wall=84s
+  [ edmd_dl] 1step_nmse=1.374e-04 VPT0.5=9st VPT1.0=10st (-) params=5000 wall=14s
+
+=== ikeda | seed 0 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=2.362e-03 VPT0.5=5st VPT1.0=8st (-) params=3136 wall=290s
+  [   nehma] 1step_nmse=1.341e-03 VPT0.5=3st VPT1.0=3st (-) params=3136 wall=246s
+  [   coote] 1step_nmse=5.724e-01 VPT0.5=1st VPT1.0=infst (-) params=18960 wall=66s
+  [ edmd_dl] 1step_nmse=4.095e-01 VPT0.5=1st VPT1.0=infst (-) params=4677 wall=14s
+
+=== ikeda | seed 1 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=6.980e-03 VPT0.5=4st VPT1.0=6st (-) params=3136 wall=281s
+  [   nehma] 1step_nmse=2.366e-03 VPT0.5=3st VPT1.0=5st (-) params=3136 wall=268s
+  [   coote] 1step_nmse=6.124e-01 VPT0.5=1st VPT1.0=infst (-) params=18960 wall=63s
+  [ edmd_dl] 1step_nmse=8.990e-04 VPT0.5=7st VPT1.0=10st (-) params=4677 wall=13s
+
+=== ikeda | seed 2 | epochs 200 | cpu ===
+  [    ours] 1step_nmse=5.657e-03 VPT0.5=5st VPT1.0=7st (-) params=3136 wall=270s
+  [   nehma] 1step_nmse=1.634e-03 VPT0.5=3st VPT1.0=11st (-) params=3136 wall=254s
+  [   coote] 1step_nmse=2.193e-01 VPT0.5=2st VPT1.0=infst (-) params=18960 wall=63s
+  [ edmd_dl] 1step_nmse=3.333e-03 VPT0.5=5st VPT1.0=8st (-) params=4677 wall=13s
+
+=== ks | seed 0 | epochs 100 | cpu ===
+  [    ours] 1step_nmse=6.477e-04 VPT0.5=26st VPT1.0=63st (0.68tau) params=126976 wall=91s
+  [   nehma] 1step_nmse=6.834e-04 VPT0.5=21st VPT1.0=135st (1.45tau) params=126976 wall=88s
+  [   coote] 1step_nmse=3.779e-01 VPT0.5=14st VPT1.0=infst (-) params=202816 wall=18s
+  [ edmd_dl] 1step_nmse=3.841e-01 VPT0.5=14st VPT1.0=infst (-) params=27928 wall=5s
+
+=== ks | seed 1 | epochs 100 | cpu ===
+  [    ours] 1step_nmse=5.950e-04 VPT0.5=41st VPT1.0=111st (1.19tau) params=126976 wall=92s
+  [   nehma] 1step_nmse=5.964e-04 VPT0.5=20st VPT1.0=infst (-) params=126976 wall=86s
+  [   coote] 1step_nmse=3.765e-01 VPT0.5=13st VPT1.0=infst (-) params=202816 wall=18s
+  [ edmd_dl] 1step_nmse=3.841e-01 VPT0.5=14st VPT1.0=infst (-) params=27928 wall=6s
+
+=== ks | seed 2 | epochs 100 | cpu ===
+  [    ours] 1step_nmse=5.423e-04 VPT0.5=50st VPT1.0=87st (0.94tau) params=126976 wall=93s
+  [   nehma] 1step_nmse=5.431e-04 VPT0.5=20st VPT1.0=infst (-) params=126976 wall=87s
+  [   coote] 1step_nmse=2.932e-01 VPT0.5=16st VPT1.0=infst (-) params=202816 wall=17s
+  [ edmd_dl] 1step_nmse=3.841e-01 VPT0.5=14st VPT1.0=infst (-) params=27928 wall=5s
+
+=== mackey_glass | seed 0 | epochs 100 | cpu ===
+  [    ours] 1step_nmse=1.573e-02 VPT0.5=17st VPT1.0=51st (1.75tau) params=126976 wall=16s
+  [   nehma] 1step_nmse=1.694e-02 VPT0.5=5st VPT1.0=17st (0.58tau) params=126976 wall=15s
+  [   coote] 1step_nmse=4.117e-02 VPT0.5=3st VPT1.0=5st (0.17tau) params=202816 wall=1s
+  [ edmd_dl] 1step_nmse=6.974e-02 VPT0.5=4st VPT1.0=41st (1.41tau) params=27928 wall=1s
+
+=== mackey_glass | seed 1 | epochs 100 | cpu ===
+  [    ours] 1step_nmse=1.277e-02 VPT0.5=19st VPT1.0=41st (1.41tau) params=126976 wall=16s
+  [   nehma] 1step_nmse=1.901e-02 VPT0.5=5st VPT1.0=25st (0.86tau) params=126976 wall=14s
+  [   coote] 1step_nmse=4.070e-02 VPT0.5=3st VPT1.0=5st (0.17tau) params=202816 wall=1s
+  [ edmd_dl] 1step_nmse=5.179e-01 VPT0.5=3st VPT1.0=4st (0.14tau) params=27928 wall=1s
+
+=== mackey_glass | seed 2 | epochs 100 | cpu ===
+  [    ours] 1step_nmse=1.072e-02 VPT0.5=21st VPT1.0=46st (1.58tau) params=126976 wall=15s
+  [   nehma] 1step_nmse=1.720e-02 VPT0.5=5st VPT1.0=26st (0.89tau) params=126976 wall=14s
+  [   coote] 1step_nmse=4.109e-02 VPT0.5=3st VPT1.0=5st (0.17tau) params=202816 wall=1s
+  [ edmd_dl] 1step_nmse=5.080e-01 VPT0.5=3st VPT1.0=4st (0.14tau) params=27928 wall=1s
+
+Wrote results/benchmark_prior_art/results.csv
+
+=== SUMMARY (1-step norm-MSE | VPT0.5,1.0 steps) ===
+       lorenz     ours  nmse=4.871e-05  VPT0.5=  119  VPT1.0=  inf  params=   3296
+       lorenz    nehma  nmse=3.062e-05  VPT0.5=   25  VPT1.0=   39  params=   3296
+       lorenz    coote  nmse=1.603e-03  VPT0.5=   18  VPT1.0=   33  params=  19472
+       lorenz  edmd_dl  nmse=4.429e-02  VPT0.5=   13  VPT1.0=  inf  params=   4741
+       lorenz     ours  nmse=2.955e-05  VPT0.5=  127  VPT1.0=  inf  params=   3296
+       lorenz    nehma  nmse=9.160e-06  VPT0.5=   24  VPT1.0=  230  params=   3296
+       lorenz    coote  nmse=1.285e-03  VPT0.5=   19  VPT1.0=   42  params=  19472
+       lorenz  edmd_dl  nmse=4.409e-02  VPT0.5=   13  VPT1.0=  250  params=   4741
+       lorenz     ours  nmse=3.306e-05  VPT0.5=  177  VPT1.0=  inf  params=   3296
+       lorenz    nehma  nmse=2.958e-05  VPT0.5=   27  VPT1.0=  183  params=   3296
+       lorenz    coote  nmse=1.224e-03  VPT0.5=   18  VPT1.0=   32  params=  19472
+       lorenz  edmd_dl  nmse=3.587e-03  VPT0.5=   15  VPT1.0=   32  params=   4741
+      cat_map     ours  nmse=5.732e-04  VPT0.5=    5  VPT1.0=    6  params=   9536
+      cat_map    nehma  nmse=1.828e-04  VPT0.5=    2  VPT1.0=  inf  params=   9536
+      cat_map    coote  nmse=1.073e-01  VPT0.5=    2  VPT1.0=  inf  params=  29976
+      cat_map  edmd_dl  nmse=8.308e-01  VPT0.5=    1  VPT1.0=  inf  params=   5000
+      cat_map     ours  nmse=1.846e-03  VPT0.5=    4  VPT1.0=    5  params=   9536
+      cat_map    nehma  nmse=7.367e-04  VPT0.5=    2  VPT1.0=    2  params=   9536
+      cat_map    coote  nmse=6.577e-02  VPT0.5=    2  VPT1.0=  inf  params=  29976
+      cat_map  edmd_dl  nmse=1.021e+00  VPT0.5=    1  VPT1.0=  inf  params=   5000
+      cat_map     ours  nmse=1.144e-03  VPT0.5=    5  VPT1.0=    6  params=   9536
+      cat_map    nehma  nmse=1.509e-04  VPT0.5=    2  VPT1.0=    3  params=   9536
+      cat_map    coote  nmse=7.373e-02  VPT0.5=    2  VPT1.0=  inf  params=  29976
+      cat_map  edmd_dl  nmse=1.403e-03  VPT0.5=    4  VPT1.0=    4  params=   5000
+ standard_map     ours  nmse=1.490e-03  VPT0.5=    7  VPT1.0=   11  params=  12544
+ standard_map    nehma  nmse=5.559e-05  VPT0.5=    3  VPT1.0=   55  params=  12544
+ standard_map    coote  nmse=5.739e-02  VPT0.5=    3  VPT1.0=  inf  params=  39968
+ standard_map  edmd_dl  nmse=1.176e-04  VPT0.5=    8  VPT1.0=    9  params=   5000
+ standard_map     ours  nmse=2.141e-04  VPT0.5=   13  VPT1.0=   15  params=  12544
+ standard_map    nehma  nmse=7.006e-05  VPT0.5=    3  VPT1.0=  inf  params=  12544
+ standard_map    coote  nmse=2.641e-02  VPT0.5=    3  VPT1.0=  inf  params=  39968
+ standard_map  edmd_dl  nmse=2.654e-03  VPT0.5=    6  VPT1.0=    8  params=   5000
+ standard_map     ours  nmse=1.503e-04  VPT0.5=    8  VPT1.0=   13  params=  12544
+ standard_map    nehma  nmse=1.645e-04  VPT0.5=    3  VPT1.0=  inf  params=  12544
+ standard_map    coote  nmse=3.321e-02  VPT0.5=    4  VPT1.0=  inf  params=  39968
+ standard_map  edmd_dl  nmse=1.374e-04  VPT0.5=    9  VPT1.0=   10  params=   5000
+        ikeda     ours  nmse=2.362e-03  VPT0.5=    5  VPT1.0=    8  params=   3136
+        ikeda    nehma  nmse=1.341e-03  VPT0.5=    3  VPT1.0=    3  params=   3136
+        ikeda    coote  nmse=5.724e-01  VPT0.5=    1  VPT1.0=  inf  params=  18960
+        ikeda  edmd_dl  nmse=4.095e-01  VPT0.5=    1  VPT1.0=  inf  params=   4677
+        ikeda     ours  nmse=6.980e-03  VPT0.5=    4  VPT1.0=    6  params=   3136
+        ikeda    nehma  nmse=2.366e-03  VPT0.5=    3  VPT1.0=    5  params=   3136
+        ikeda    coote  nmse=6.124e-01  VPT0.5=    1  VPT1.0=  inf  params=  18960
+        ikeda  edmd_dl  nmse=8.990e-04  VPT0.5=    7  VPT1.0=   10  params=   4677
+        ikeda     ours  nmse=5.657e-03  VPT0.5=    5  VPT1.0=    7  params=   3136
+        ikeda    nehma  nmse=1.634e-03  VPT0.5=    3  VPT1.0=   11  params=   3136
+        ikeda    coote  nmse=2.193e-01  VPT0.5=    2  VPT1.0=  inf  params=  18960
+        ikeda  edmd_dl  nmse=3.333e-03  VPT0.5=    5  VPT1.0=    8  params=   4677
+           ks     ours  nmse=6.477e-04  VPT0.5=   26  VPT1.0=   63  params= 126976
+           ks    nehma  nmse=6.834e-04  VPT0.5=   21  VPT1.0=  135  params= 126976
+           ks    coote  nmse=3.779e-01  VPT0.5=   14  VPT1.0=  inf  params= 202816
+           ks  edmd_dl  nmse=3.841e-01  VPT0.5=   14  VPT1.0=  inf  params=  27928
+           ks     ours  nmse=5.950e-04  VPT0.5=   41  VPT1.0=  111  params= 126976
+           ks    nehma  nmse=5.964e-04  VPT0.5=   20  VPT1.0=  inf  params= 126976
+           ks    coote  nmse=3.765e-01  VPT0.5=   13  VPT1.0=  inf  params= 202816
+           ks  edmd_dl  nmse=3.841e-01  VPT0.5=   14  VPT1.0=  inf  params=  27928
+           ks     ours  nmse=5.423e-04  VPT0.5=   50  VPT1.0=   87  params= 126976
+           ks    nehma  nmse=5.431e-04  VPT0.5=   20  VPT1.0=  inf  params= 126976
+           ks    coote  nmse=2.932e-01  VPT0.5=   16  VPT1.0=  inf  params= 202816
+           ks  edmd_dl  nmse=3.841e-01  VPT0.5=   14  VPT1.0=  inf  params=  27928
+ mackey_glass     ours  nmse=1.573e-02  VPT0.5=   17  VPT1.0=   51  params= 126976
+ mackey_glass    nehma  nmse=1.694e-02  VPT0.5=    5  VPT1.0=   17  params= 126976
+ mackey_glass    coote  nmse=4.117e-02  VPT0.5=    3  VPT1.0=    5  params= 202816
+ mackey_glass  edmd_dl  nmse=6.974e-02  VPT0.5=    4  VPT1.0=   41  params=  27928
+ mackey_glass     ours  nmse=1.277e-02  VPT0.5=   19  VPT1.0=   41  params= 126976
+ mackey_glass    nehma  nmse=1.901e-02  VPT0.5=    5  VPT1.0=   25  params= 126976
+ mackey_glass    coote  nmse=4.070e-02  VPT0.5=    3  VPT1.0=    5  params= 202816
+ mackey_glass  edmd_dl  nmse=5.179e-01  VPT0.5=    3  VPT1.0=    4  params=  27928
+ mackey_glass     ours  nmse=1.072e-02  VPT0.5=   21  VPT1.0=   46  params= 126976
+ mackey_glass    nehma  nmse=1.720e-02  VPT0.5=    5  VPT1.0=   26  params= 126976
+ mackey_glass    coote  nmse=4.109e-02  VPT0.5=    3  VPT1.0=    5  params= 202816
+ mackey_glass  edmd_dl  nmse=5.080e-01  VPT0.5=    3  VPT1.0=    4  params=  27928

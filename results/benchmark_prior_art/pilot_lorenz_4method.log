@@ -1,0 +1,15 @@
+
+=== lorenz | seed 0 | epochs 200 | cpu ===
+  [    ours] onestep_nmse=9.261e-06 nrmse@2tau=0.306 VPT0.5=2.70 VPT1.0=inf params=3296 wall=435.0s
+  [   nehma] onestep_nmse=8.195e-06 nrmse@2tau=0.746 VPT0.5=0.20 VPT1.0=0.88 params=3296 wall=440.2s
+  [   coote] onestep_nmse=1.063e-03 nrmse@2tau=0.668 VPT0.5=0.17 VPT1.0=0.54 params=19472 wall=71.5s
+  [ edmd_dl] onestep_nmse=4.199e-02 nrmse@2tau=0.656 VPT0.5=0.14 VPT1.0=2.29 params=4741 wall=22.1s
+
+Wrote results/benchmark_prior_art/results.csv
+
+=== SUMMARY ===
+  system   method  1step_nmse  nrmse@2tau  VPT0.5  VPT1.0  params
+  lorenz     ours   9.261e-06       0.306    2.70     inf    3296
+  lorenz    nehma   8.195e-06       0.746    0.20    0.88    3296
+  lorenz    coote   1.063e-03       0.668    0.17    0.54   19472
+  lorenz  edmd_dl   4.199e-02       0.656    0.14    2.29    4741

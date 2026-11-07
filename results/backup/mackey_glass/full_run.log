@@ -1,0 +1,104 @@
+======================================================================
+Mackey-Glass Stable Koopman with KANLinear Autoencoder
+======================================================================
+  DDE: beta=0.2, gamma=0.1, n=10, tau=17.0
+  State: history window x[t-tau..t] sampled at N=64 points
+  Model: KANAutoEncoder(64, 128, 128) + StableKoopman
+  grid_range_l1=[-0.2, 1.8], grid_range_l2=[-10, 10]
+  dt_save=4.0, tau_L~116 time units, device=cpu
+
+--- Generating Mackey-Glass data ---
+  MG simulator: tau=17.0, n_delay=170, dt_int=0.1, dt_save=4.0
+  burn_in steps=3000, prod steps=8000, save steps=200, N_window=64
+  Traj 1/24: x(t) range [0.422, 1.318], std=0.226
+  Traj 5/24: x(t) range [0.430, 1.312], std=0.227
+  Traj 10/24: x(t) range [0.422, 1.312], std=0.226
+  Traj 15/24: x(t) range [0.427, 1.320], std=0.225
+  Traj 20/24: x(t) range [0.423, 1.318], std=0.227
+  Saved MG data to results/mg_runD/mg_data_N64_dt4_T800_n24.pt
+  Data shape: (24, 200, 64)  (n_traj, n_steps, N_window)
+  window value range: [0.417, 1.320]
+
+  [chaos check] x(t) mean=0.930, std=0.226, range=[0.418, 1.320]
+  Saved simulator_check.png/pdf
+  Verdict: CHAOTIC (std > 0.1)
+
+--- Training (300 epochs) ---
+  Stable Koopman [64,128,128]: 507,904 params
+  Ep   1 | train 1.21672 (pred 0.80430, lat 0.00670, rec 0.81143) | val 0.89290 | |lam| [0.9449, 0.9806]
+  Ep  10 | train 0.03481 (pred 0.02002, lat 0.00415, rec 0.02128) | val 0.03360 | |lam| [0.5561, 0.9852]
+  Ep  20 | train 0.00523 (pred 0.00260, lat 0.00130, rec 0.00265) | val 0.00468 | |lam| [0.5338, 0.9827]
+  Ep  30 | train 0.00274 (pred 0.00133, lat 0.00069, rec 0.00142) | val 0.00268 | |lam| [0.5327, 0.9946]
+  Ep  40 | train 0.00213 (pred 0.00102, lat 0.00055, rec 0.00113) | val 0.00210 | |lam| [0.5327, 0.9947]
+  Ep  50 | train 0.00162 (pred 0.00072, lat 0.00046, rec 0.00088) | val 0.00164 | |lam| [0.5334, 0.9963]
+  Ep  60 | train 0.00135 (pred 0.00058, lat 0.00041, rec 0.00070) | val 0.00133 | |lam| [0.5344, 0.9965]
+  Ep  70 | train 0.00116 (pred 0.00051, lat 0.00036, rec 0.00058) | val 0.00120 | |lam| [0.5342, 0.9965]
+  Ep  80 | train 0.00098 (pred 0.00043, lat 0.00031, rec 0.00047) | val 0.00098 | |lam| [0.5321, 0.9969]
+  Ep  90 | train 0.00081 (pred 0.00033, lat 0.00028, rec 0.00039) | val 0.00078 | |lam| [0.5277, 0.9969]
+  Ep 100 | train 0.00070 (pred 0.00028, lat 0.00026, rec 0.00033) | val 0.00069 | |lam| [0.5237, 0.9974]
+  Ep 110 | train 0.00062 (pred 0.00024, lat 0.00024, rec 0.00028) | val 0.00066 | |lam| [0.5198, 0.9975]
+  Ep 120 | train 0.00055 (pred 0.00019, lat 0.00023, rec 0.00025) | val 0.00054 | |lam| [0.5173, 0.9975]
+  Ep 130 | train 0.00051 (pred 0.00018, lat 0.00022, rec 0.00022) | val 0.00048 | |lam| [0.5156, 0.9976]
+  Ep 140 | train 0.00045 (pred 0.00015, lat 0.00020, rec 0.00020) | val 0.00047 | |lam| [0.5142, 0.9976]
+  Ep 150 | train 0.00044 (pred 0.00015, lat 0.00019, rec 0.00019) | val 0.00043 | |lam| [0.5129, 0.9980]
+  Ep 160 | train 0.00040 (pred 0.00012, lat 0.00019, rec 0.00017) | val 0.00040 | |lam| [0.5125, 0.9980]
+  Ep 170 | train 0.00038 (pred 0.00012, lat 0.00018, rec 0.00016) | val 0.00039 | |lam| [0.5122, 0.9981]
+  Ep 180 | train 0.00036 (pred 0.00011, lat 0.00017, rec 0.00015) | val 0.00036 | |lam| [0.5121, 0.9983]
+  Ep 190 | train 0.00035 (pred 0.00011, lat 0.00016, rec 0.00015) | val 0.00035 | |lam| [0.5121, 0.9983]
+  Ep 200 | train 0.00033 (pred 0.00010, lat 0.00016, rec 0.00014) | val 0.00034 | |lam| [0.5121, 0.9984]
+  Ep 210 | train 0.00033 (pred 0.00010, lat 0.00016, rec 0.00014) | val 0.00033 | |lam| [0.5121, 0.9984]
+  Ep 220 | train 0.00032 (pred 0.00010, lat 0.00015, rec 0.00013) | val 0.00032 | |lam| [0.5121, 0.9984]
+  Ep 230 | train 0.00031 (pred 0.00010, lat 0.00015, rec 0.00013) | val 0.00031 | |lam| [0.5122, 0.9985]
+  Ep 240 | train 0.00031 (pred 0.00010, lat 0.00015, rec 0.00013) | val 0.00031 | |lam| [0.5122, 0.9985]
+  Ep 250 | train 0.00030 (pred 0.00009, lat 0.00015, rec 0.00013) | val 0.00031 | |lam| [0.5123, 0.9985]
+  Ep 260 | train 0.00030 (pred 0.00009, lat 0.00014, rec 0.00013) | val 0.00030 | |lam| [0.5123, 0.9986]
+  Ep 270 | train 0.00030 (pred 0.00009, lat 0.00014, rec 0.00013) | val 0.00030 | |lam| [0.5123, 0.9986]
+  Ep 280 | train 0.00030 (pred 0.00009, lat 0.00014, rec 0.00012) | val 0.00030 | |lam| [0.5123, 0.9986]
+  Ep 290 | train 0.00030 (pred 0.00009, lat 0.00014, rec 0.00012) | val 0.00030 | |lam| [0.5123, 0.9986]
+  Ep 300 | train 0.00030 (pred 0.00009, lat 0.00014, rec 0.00012) | val 0.00030 | |lam| [0.5123, 0.9986]
+  Saved checkpoint to results/mg_runD/mackey_glass_model.pt
+  Plotting loss curves...
+  Saved loss_curves.png/pdf
+
+--- Generating plots ---
+1. Delay-time rollout...
+  Saved spacetime_rollout.png/pdf
+2. NRMSE over time...
+  Saved nrmse.png/pdf | 1-step floor=0.0697
+    NRMSE>0.5: 1.10 tau_L (128 t.u., 32 steps, 7.5 tau)
+    NRMSE>1.0: 2.79 tau_L (324 t.u., 81 steps, 19.1 tau)
+3. Eigenvalue spectrum...
+  Discrete |lam| range: [0.512320, 0.998592], all <= 1? True
+  Generator max Re(mu) = -0.000352
+  Saved eigenvalues.png/pdf
+4. Reconstruction examples...
+  Saved reconstruction.png/pdf (overall MSE = 1.26e-04)
+
+  Top-4 latent dims by variance: [88, 48, 123, 57]
+5. Level-set decomposition...
+  z[ 88] (deg 2): R^2(g)=0.999  R^2(h.g)=0.999  #active=248
+  z[ 48] (deg 2): R^2(g)=1.000  R^2(h.g)=1.000  #active=247
+  z[123] (deg 2): R^2(g)=0.999  R^2(h.g)=0.999  #active=87
+  z[ 57] (deg 2): R^2(g)=1.000  R^2(h.g)=1.000  #active=194
+6. Level-set foliation plots...
+  Saved levelset_z88.png (R^2(h.g)=0.9993, coherence R^2@tau_L=0.23)
+  Saved levelset_z48.png (R^2(h.g)=0.9996, coherence R^2@tau_L=0.22)
+  Saved levelset_z123.png (R^2(h.g)=0.9990, coherence R^2@tau_L=0.23)
+  Saved levelset_z57.png (R^2(h.g)=0.9999, coherence R^2@tau_L=0.22)
+
+======================================================================
+EXPERIMENT SUMMARY
+======================================================================
+  Config: latent=128, mid=128, dt_save=4.0, T=800.0, n_traj=24, epochs=300
+  Chaos: std(x)=0.226  ->  CHAOTIC
+  Final train loss: 0.00030
+  Final val loss:   0.00030
+  One-step NRMSE floor: 0.0697
+  Horizon NRMSE>0.5: 1.10 tau_L (128 t.u., 32 steps, 7.5 tau)
+  Horizon NRMSE>1.0: 2.79 tau_L (324 t.u., 81 steps, 19.1 tau)
+  Propagator |lambda| in [0.5123, 0.9986]  (all <= 1: True)
+  Reconstruction MSE: 1.261e-04
+  R^2(h.g) across analyzed dims: [0.999, 1.000]
+  Wall-clock: 279.2 s
+  Results saved to: /home/kslote/Desktop/deep-koopman-KAN/code_base/deep-koopman-KANDy/results/mg_runD/
+======================================================================
